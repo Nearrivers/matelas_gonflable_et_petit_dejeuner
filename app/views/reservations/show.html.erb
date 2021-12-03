@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @reservation.location %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @reservation.user %>
+</p>
+
+<p>
+  <strong>Date in:</strong>
+  <%= @reservation.date_in %>
+</p>
+
+<p>
+  <strong>Date out:</strong>
+  <%= @reservation.date_out %>
+</p>
+
+<p>
+  <strong>Nbpeople:</strong>
+  <%= @reservation.nbPeople %>
+</p>
+
+<p>
+  <strong>Strip reference:</strong>
+  <%= @reservation.strip_reference %>
+</p>
+
+<%= link_to 'Edit', edit_reservation_path(@reservation) %> |
+<%= link_to 'Back', reservations_path %>

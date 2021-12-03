@@ -1,0 +1,37 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  nbRoom: 1
+  nbBed: 1
+  type: 1
+  description: MyString
+  city: MyString
+  street: MyString
+  zipcode: MyString
+  lat: 1.5
+  long: 1.5
+  price: 1.5
+  avgScore: 1.5
+  equipments: one
+  locationOptions: one
+  reservation: one
+  feedbacks: one
+
+two:
+  name: MyString
+  nbRoom: 1
+  nbBed: 1
+  type: 1
+  description: MyString
+  city: MyString
+  street: MyString
+  zipcode: MyString
+  lat: 1.5
+  long: 1.5
+  price: 1.5
+  avgScore: 1.5
+  equipments: two
+  locationOptions: two
+  reservation: two
+  feedbacks: two

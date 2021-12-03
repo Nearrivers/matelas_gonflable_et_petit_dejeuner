@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  location: 
+  user: 
+  date_in: 2021-12-03
+  date_out: 2021-12-03
+  nbPeople: 1
+  strip_reference: MyString
+
+two:
+  location: 
+  user: 
+  date_in: 2021-12-03
+  date_out: 2021-12-03
+  nbPeople: 1
+  strip_reference: MyString
