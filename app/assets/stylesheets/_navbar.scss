@@ -74,6 +74,8 @@
 
                         .nav-link {
                             border-radius: 18px;
+                            font-weight: bold;
+                            font-size: 14px;
                             padding: 10px;
                             height: 100%;
                         }
@@ -90,11 +92,28 @@
                     .user-dropdown {
                         display: flex;
                         align-items: center;
+                        position: relative;
                         width: 72px;
                         height: 42px;
                         justify-content: space-evenly;
                         background-color: #fff;
                         border-radius: 40px;
+
+                        button {
+                            display: flex;
+                            align-items: center;
+                            background-color: transparent;
+                            border: none;
+
+                            &:focus {
+                                box-shadow: none;
+                            }
+
+                            &::after {
+                                display: none;
+                            }
+
+                        }
 
                         .burger-icon svg {
                             fill: black;
@@ -102,6 +121,44 @@
 
                         .user-icon svg {
                             fill: gray;
+                        }
+
+                        .menu-connexion {
+                            position: absolute;
+                            top: 120%;
+                            right: 0;
+                            width: 220px;
+                            background-color: white;
+                            border: none;
+                            border-radius: 10px;
+                            display: none;
+                            flex-direction: column;
+                            padding-top: 10px;
+
+                            div:not(.dropdown-divider) {
+                                height: 38px;
+                                cursor: pointer;
+                                vertical-align: center;
+
+                                &:hover {
+                                    background-color: #eeeeee;
+                                }
+
+                                a {
+                                    display: block;
+                                    text-decoration: none;
+                                    color: black;
+                                    padding: 10px;
+                                    cursor: pointer;
+                                    &:hover {
+                                        background-color: #eeeeee;
+                                    }
+                                }
+                            }
+                        }
+
+                        .display-menu {
+                            display: flex !important;
                         }
                     }
                 }
