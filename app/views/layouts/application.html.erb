@@ -1,33 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>MatelasGonflableEtPetitDejeuner</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>MatelasGonflableEtPetitDejeuner</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag 'bootstrap.min', media: 'all' %>
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'bootstrap' %>
-  </head>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'bootstrap.min', media: 'all' %>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'bootstrap' %>
+</head>
 
-  <body>
-    <header>
-      <%= render './layouts/navbar' %>
-    </header>
+<body>
 
+<header>
+  <%= render './layouts/navbar' %>
+</header>
 
-    <%= yield %>
+<%= yield %>
 
+<% flash.each do |name, msg| %>
+  <div class="alert alert-<%= name %>"><%= msg %></div>
+<% end %>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
-
-    <footer>
-      <%= render './layouts/footer' %>
-    </footer>
-  </body>
+<footer>
+  <%= render './layouts/footer' %>
+</footer>
+</body>
 </html>
