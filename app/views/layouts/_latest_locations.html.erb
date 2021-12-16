@@ -1,0 +1,24 @@
+<section id="discover">
+  <div class="d-flex flex-column card-img">
+    <div class="d-flex">
+      <%= image_tag("airbnb.webp", :alt => "flexible") %>
+    </div>
+    <h2>Vous ne savez pas où aller ? <br>Parfait</h2>
+  </div>
+</section>
+
+<section id="latest_locations">
+  <div class="p-4">
+    <h1>Locations en vedettes</h1>
+
+      <div class="p-3">
+      <% @latest_locations.each do |location| %>
+        <tr>
+          <td><%= location.name %></td>
+          <td><%= location.city %></td>
+          <td><%= location.price %></td>
+        </tr>
+      <% end %>
+      </div>
+  </div>
+</section>

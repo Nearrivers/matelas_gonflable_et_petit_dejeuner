@@ -1,0 +1,27 @@
+#discover {
+  background: black;
+  min-height: 76vh;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-content: center;
+
+  .card-img {
+    width: 100%;
+    img {
+      margin: auto;
+      width: 90%;
+      border-radius: 16px;
+    }
+
+    h2 {
+      color: white;
+      font-size: 2em;
+      text-align: center;
+    }
+  }
+}
+
+#latest_locations {
+}
