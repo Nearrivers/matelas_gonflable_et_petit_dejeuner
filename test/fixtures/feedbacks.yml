@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: 
+  location: 
+  score: 1.5
+  comment: MyText
+
+two:
+  user: 
+  location: 
+  score: 1.5
+  comment: MyText
