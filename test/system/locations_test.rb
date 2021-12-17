@@ -14,22 +14,18 @@ class LocationsTest < ApplicationSystemTestCase
     visit locations_url
     click_on "New Location"
 
-    fill_in "Avgscore", with: @location.avgScore
+    fill_in "Avg score", with: @location.avg_score
     fill_in "City", with: @location.city
     fill_in "Description", with: @location.description
-    fill_in "Equipments", with: @location.equipments_id
-    fill_in "Feedbacks", with: @location.feedbacks_id
     fill_in "Lat", with: @location.lat
-    fill_in "Locationoptions", with: @location.locationOptions_id
     fill_in "Long", with: @location.long
     fill_in "Name", with: @location.name
-    fill_in "Nbbed", with: @location.nbBed
-    fill_in "Nbroom", with: @location.nbRoom
+    fill_in "Nb bed", with: @location.nb_bed
+    fill_in "Nb room", with: @location.nb_room
     fill_in "Price", with: @location.price
-    fill_in "Reservation", with: @location.reservation_id
     fill_in "Street", with: @location.street
-    fill_in "Type", with: @location.type
-    fill_in "Zipcode", with: @location.zipcode
+    fill_in "Type location", with: @location.type_location
+    fill_in "Zip code", with: @location.zip_code
     click_on "Create Location"
 
     assert_text "Location was successfully created"
@@ -40,22 +36,18 @@ class LocationsTest < ApplicationSystemTestCase
     visit locations_url
     click_on "Edit", match: :first
 
-    fill_in "Avgscore", with: @location.avgScore
+    fill_in "Avg score", with: @location.avg_score
     fill_in "City", with: @location.city
     fill_in "Description", with: @location.description
-    fill_in "Equipments", with: @location.equipments_id
-    fill_in "Feedbacks", with: @location.feedbacks_id
     fill_in "Lat", with: @location.lat
-    fill_in "Locationoptions", with: @location.locationOptions_id
     fill_in "Long", with: @location.long
     fill_in "Name", with: @location.name
-    fill_in "Nbbed", with: @location.nbBed
-    fill_in "Nbroom", with: @location.nbRoom
+    fill_in "Nb bed", with: @location.nb_bed
+    fill_in "Nb room", with: @location.nb_room
     fill_in "Price", with: @location.price
-    fill_in "Reservation", with: @location.reservation_id
     fill_in "Street", with: @location.street
-    fill_in "Type", with: @location.type
-    fill_in "Zipcode", with: @location.zipcode
+    fill_in "Type location", with: @location.type_location
+    fill_in "Zip code", with: @location.zip_code
     click_on "Update Location"
 
     assert_text "Location was successfully updated"
