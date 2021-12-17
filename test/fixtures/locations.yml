@@ -2,36 +2,28 @@
 
 one:
   name: MyString
-  nbRoom: 1
-  nbBed: 1
-  type: 1
-  description: MyString
+  nb_room: 1
+  nb_bed: 1
+  type_location: 1
+  description: MyText
   city: MyString
   street: MyString
-  zipcode: MyString
+  zip_code: MyString
   lat: 1.5
   long: 1.5
   price: 1.5
-  avgScore: 1.5
-  equipments: one
-  locationOptions: one
-  reservation: one
-  feedbacks: one
+  avg_score: 1.5
 
 two:
   name: MyString
-  nbRoom: 1
-  nbBed: 1
-  type: 1
-  description: MyString
+  nb_room: 1
+  nb_bed: 1
+  type_location: 1
+  description: MyText
   city: MyString
   street: MyString
-  zipcode: MyString
+  zip_code: MyString
   lat: 1.5
   long: 1.5
   price: 1.5
-  avgScore: 1.5
-  equipments: two
-  locationOptions: two
-  reservation: two
-  feedbacks: two
+  avg_score: 1.5

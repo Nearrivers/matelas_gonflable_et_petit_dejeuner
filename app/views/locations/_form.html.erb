@@ -17,23 +17,24 @@
   </div>
 
   <div class="field">
-    <%= form.label :nbRoom %>
-    <%= form.number_field :nbRoom %>
+    <%= form.label :nb_room %>
+    <%= form.number_field :nb_room %>
   </div>
 
   <div class="field">
-    <%= form.label :nbBed %>
-    <%= form.number_field :nbBed %>
+    <%= form.label :nb_bed %>
+    <%= form.number_field :nb_bed %>
   </div>
 
   <div class="field">
-    <%= form.label :type %>
-    <%= form.number_field :type %>
+    <%= form.label :type_location %>
+    <%= form.select :type_locations, options_for_select(Location.type_locations.keys.to_a) %>
+
   </div>
 
   <div class="field">
     <%= form.label :description %>
-    <%= form.text_field :description %>
+    <%= form.text_area :description %>
   </div>
 
   <div class="field">
@@ -47,8 +48,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :zipcode %>
-    <%= form.text_field :zipcode %>
+    <%= form.label :zip_code %>
+    <%= form.text_field :zip_code %>
   </div>
 
   <div class="field">
@@ -67,28 +68,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :avgScore %>
-    <%= form.text_field :avgScore %>
-  </div>
-
-  <div class="field">
-    <%= form.label :equipments_id %>
-    <%= form.text_field :equipments_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :locationOptions_id %>
-    <%= form.text_field :locationOptions_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :reservation_id %>
-    <%= form.text_field :reservation_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :feedbacks_id %>
-    <%= form.text_field :feedbacks_id %>
+    <%= form.label :avg_score %>
+    <%= form.text_field :avg_score %>
   </div>
 
   <div class="actions">

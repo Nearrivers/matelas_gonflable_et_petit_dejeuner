@@ -1,4 +1,4 @@
-class EquipmentController < ApplicationController
+class EquipmentsController < ApplicationController
   before_action :set_equipment, only: %i[ show edit update destroy ]
 
   # GET /equipment or /equipment.json

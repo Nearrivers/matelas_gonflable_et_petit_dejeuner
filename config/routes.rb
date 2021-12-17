@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
+  resources :locations
   devise_for :users
   resources :conversations
   resources :messages
   resources :users
   resources :feedbacks
   resources :reservations
-  resources :locations
   resources :equipment
   resources :categories
   resources :l_options
