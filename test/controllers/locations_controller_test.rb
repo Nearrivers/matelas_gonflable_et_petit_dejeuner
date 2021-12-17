@@ -17,7 +17,7 @@ class LocationsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create location" do
     assert_difference('Location.count') do
-      post locations_url, params: { location: { avgScore: @location.avgScore, city: @location.city, description: @location.description, equipments_id: @location.equipments_id, feedbacks_id: @location.feedbacks_id, lat: @location.lat, locationOptions_id: @location.locationOptions_id, long: @location.long, name: @location.name, nbBed: @location.nbBed, nbRoom: @location.nbRoom, price: @location.price, reservation_id: @location.reservation_id, street: @location.street, type: @location.type, zipcode: @location.zipcode } }
+      post locations_url, params: { location: { avg_score: @location.avg_score, city: @location.city, description: @location.description, lat: @location.lat, long: @location.long, name: @location.name, nb_bed: @location.nb_bed, nb_room: @location.nb_room, price: @location.price, street: @location.street, type_location: @location.type_location, zip_code: @location.zip_code } }
     end
 
     assert_redirected_to location_url(Location.last)
@@ -34,7 +34,7 @@ class LocationsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update location" do
-    patch location_url(@location), params: { location: { avgScore: @location.avgScore, city: @location.city, description: @location.description, equipments_id: @location.equipments_id, feedbacks_id: @location.feedbacks_id, lat: @location.lat, locationOptions_id: @location.locationOptions_id, long: @location.long, name: @location.name, nbBed: @location.nbBed, nbRoom: @location.nbRoom, price: @location.price, reservation_id: @location.reservation_id, street: @location.street, type: @location.type, zipcode: @location.zipcode } }
+    patch location_url(@location), params: { location: { avg_score: @location.avg_score, city: @location.city, description: @location.description, lat: @location.lat, long: @location.long, name: @location.name, nb_bed: @location.nb_bed, nb_room: @location.nb_room, price: @location.price, street: @location.street, type_location: @location.type_location, zip_code: @location.zip_code } }
     assert_redirected_to location_url(@location)
   end
 
