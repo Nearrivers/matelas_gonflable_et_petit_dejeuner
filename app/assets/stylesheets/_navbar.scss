@@ -1,6 +1,6 @@
 .navbar {
-    padding: 0 180px 0 80px !important;
-    height: 80px;
+    padding: 0 80px 0 80px !important;
+    min-height: 80px;
     background-color: black;
     color: white;
 
@@ -144,7 +144,7 @@
                                     background-color: #eeeeee;
                                 }
 
-                                a {
+                                .menu-link {
                                     display: block;
                                     text-decoration: none;
                                     color: black;
@@ -153,6 +153,10 @@
                                     &:hover {
                                         background-color: #eeeeee;
                                     }
+                                }
+
+                                .inscription {
+                                    font-weight: bold;
                                 }
                             }
                         }
@@ -166,3 +170,148 @@
         }
     }
 }
+
+.searchbar-section {
+    height: 66px;
+    background-color: black;
+    align-items: end !important;
+    display: flex;
+    justify-content: center;
+
+    .searchbar {
+        background-color: white;
+        width: 848px;
+        height: 66px;
+        border-radius: 40px;
+        display: flex;
+
+        .searchbar-item {
+            border-radius: 40px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            padding: 14px 32px 14px 32px;
+
+            &:hover {
+                background-color: #eeeeee;
+            }
+
+            &:hover, &.hover .item-label{
+                cursor: pointer;
+                border-radius: 40px;
+                background: #eeeeee !important;
+            }
+
+            .item-label:first-child {
+                font-weight: bold;
+                font-size: 12px !important;
+            }
+
+            .item-label {
+                font-size: 14px;
+                border: none;
+                background-color: inherit;
+
+                &:focus {
+                    outline: none !important;
+                    font-weight: bold;
+                }
+            }
+        }
+
+        .separator {
+            align-self: center;
+            border-right: 1px solid rgb(221, 221, 221);
+            height: 32px;
+        }
+
+        .address-picker {
+            width: 269.98px;
+        }
+
+        .dates-pickers {
+            display: flex;
+
+            .arrival-picker {
+                width: 158px;
+            }
+
+            .departure-picker {
+                width: 158px;
+            }
+        }
+
+        .travelers-picker {
+            width: 300.24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            &:hover, &.hover .searchbar-item {
+                cursor: pointer;
+                border-radius:  40px;
+                background: #eeeeee;
+            }
+
+            .search-glass {
+                padding-right: 4%;
+
+                .search-button {
+                    // width: 48px;
+                    width: 146px;
+                    height: 48px;
+                    border-radius: 24px;
+                    border: none;
+                    background-color: rgb(255, 56, 92);
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    color: white;
+                    font-weight: 700;
+
+                    // .magnifying-glass{
+                    //     height: 16px;
+                    //     width: 16px;
+                    // }
+                    // .rechercher {
+                    //     display: none;
+                    // }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 950px) {
+    .navbar {
+        padding: 0 40px 0 40px !important;
+    }
+
+    .navbar-collapse {
+        position: relative;
+
+        .menu-centre {
+            position: absolute !important;
+            left: 18%;
+            bottom: -150%;
+        }
+    }
+
+    .searchbar-section {
+        height: 80px !important;
+    }
+}
+
+// @media (max-width: 740px) {
+//     .navbar {
+//         padding: 0 40px 0 40px !important;
+//     }
+
+//     .navbar-collapse {
+//         position: relative;
+
+//         .menu-centre {
+
+//         }
+//     }
+// }

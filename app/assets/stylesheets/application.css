@@ -22,3 +22,9 @@
 * {
     font-family: 'Raleway', sans-serif !important;
 }
+
+.image {
+    height: 20px;
+    background-color: black;
+    width: 100%;
+}
