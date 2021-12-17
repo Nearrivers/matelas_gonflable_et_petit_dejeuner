@@ -1,64 +1,67 @@
-<p id="notice"><%= notice %></p>
+<div class="container" id="single_location">
+  <div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @location.name %>
-</p>
+    <%= link_to 'Edit', edit_location_path(@location) %> |
+    <%= link_to 'Back', locations_path %>
+    <h1><%= @location.name %></h1>
+    <div>
+      <div class="d-flex align-items-center justify-content-between">
+        <div class="d-flex">
+          <p><%= @location.avg_score %>
+            ·
+            (20 commentaires todo)
+            <%= @location.city %>
+          </p>
+        </div>
+        <div class="location_action">
+          <a>Partager</a>
+          <a>Enregister</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<p>
-  <strong>Nb room:</strong>
-  <%= @location.nb_room %>
-</p>
+  <div>
+    <%= image_tag("placeholder.jpg", :alt => "placeholder") %>
+  </div>
 
-<p>
-  <strong>Nb bed:</strong>
-  <%= @location.nb_bed %>
-</p>
+  <div>
 
-<p>
-  <strong>Type location:</strong>
-  <%= @location.type_location %>
-</p>
+    <div>
+      <h2>Type de logement : <%=@location.type_location %> todo</h2>
+      <h2>Hôte: placeholder</h2>
+      <div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @location.description %>
-</p>
+      </div>
+    </div>
+    <div>
+      <%=@location.description %>
+    </div>
 
-<p>
-  <strong>City:</strong>
-  <%= @location.city %>
-</p>
+    <div>
+      <h2>Ce que propose le logement</h2>
 
-<p>
-  <strong>Street:</strong>
-  <%= @location.street %>
-</p>
+      <ul class="list-group">
+        <li class="list-group-item">Placeholder</li>
+        <li class="list-group-item">Placeholder</li>
+        <li class="list-group-item">Placeholder</li>
+        <li class="list-group-item">Placeholder</li>
+        <li class="list-group-item">Placeholder</li>
+      </ul>
+    </div>
 
-<p>
-  <strong>Zip code:</strong>
-  <%= @location.zip_code %>
-</p>
+    <hr>
 
-<p>
-  <strong>Lat:</strong>
-  <%= @location.lat %>
-</p>
+    <div>
+      <div>
+        <p><%=@location.avg_score %> · 20 commentaires</p>
+      </div>
+      <div>
+        commentaires ici !
+      </div>
+    </div>
+  </div>
 
-<p>
-  <strong>Long:</strong>
-  <%= @location.long %>
-</p>
+</div>
 
-<p>
-  <strong>Price:</strong>
-  <%= @location.price %>
-</p>
 
-<p>
-  <strong>Avg score:</strong>
-  <%= @location.avg_score %>
-</p>
-
-<%= link_to 'Edit', edit_location_path(@location) %> |
-<%= link_to 'Back', locations_path %>
