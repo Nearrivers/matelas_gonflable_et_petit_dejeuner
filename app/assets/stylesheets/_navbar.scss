@@ -163,6 +163,7 @@
 
                         .display-menu {
                             display: flex !important;
+                            z-index: 999;
                         }
                     }
                 }

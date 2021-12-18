@@ -5,6 +5,8 @@ class LocationsController < ApplicationController
   def index
     @locations = Location.all
     @testerino = "Ceci est un test"
+    @total = 150
+    @cpt = 1
   end
 
   # GET /locations/1 or /locations/1.json

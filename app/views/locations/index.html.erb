@@ -2,6 +2,76 @@
 
 <h1>Locations</h1>
 
+<div>
+  <!-- Filtres -->
+  <div>
+  </div>
+  <div class="locations">
+    <!-- Liste des locations -->
+    <div class="locations-list">
+      <p>(total) logements trouvés</p>
+      <% @locations.each do |location| %>
+        <div>
+          <a class="location" id="location<%= @cpt %>" data-lat="<%= location.lat %>" data-long="<%= location.long %>">
+            <div class="carousel">
+              <!-- Ici on mettre les images de la location -->
+              <%= image_tag("airbnb.webp", :alt => "flexible") %>
+            </div>
+            <div class="location-infos">
+              <div class="location-header">
+                <div class="title">
+                  <span><%= location.name %></span>
+                </div>
+                <div>
+                  <button class="heart">
+                    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false"><path d="m16 28c7-4.733 14-10 14-17 0-1.792-.683-3.583-2.05-4.95-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05l-2.051 2.051-2.05-2.051c-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05-1.367 1.367-2.051 3.158-2.051 4.95 0 7 7 12.267 14 17z"></path></svg>
+                  </button>
+                </div>
+              </div>
+              <div class="location-separator"></div>
+              <div class="location-body">
+                <div class="location-body-line">
+                  <span><%= location.nb_room %> pièce(s)</span>
+                  <span>&middot</span>
+                  <span><%= location.type_location %> Studio</span>
+                  <span>&middot</span>
+                  <span><%= location.nb_bed %> lit(s)</span>
+                </div>
+                <div class="location-body-line">
+                  (Équipements de la location)
+                </div>
+                <div class="location-body-line">
+                  <%= location.description %>
+                </div>
+              </div>
+              <div class="location-footer">
+                <div class="price">
+                  <div><span><%= location.price %>€ </span> / nuit </div>
+                </div>
+                <div class="bottom-section">
+                  <div class="score-section">
+                    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="display: block; height: 14px; width: 14px; fill: currentcolor;"><path d="M15.094 1.579l-4.124 8.885-9.86 1.27a1 1 0 0 0-.542 1.736l7.293 6.565-1.965 9.852a1 1 0 0 0 1.483 1.061L16 25.951l8.625 4.997a1 1 0 0 0 1.482-1.06l-1.965-9.853 7.293-6.565a1 1 0 0 0-.541-1.735l-9.86-1.271-4.127-8.885a1 1 0 0 0-1.814 0z" fill-rule="evenodd"></path></svg>
+                    <span><span class="score"><%= location.avg_score %></span> ((nbComment) commentaires)</span>
+                  </div>
+                  <div class="total">
+                    <%= @total %>€ au total
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <% @cpt+=1 %>
+        <div class="element-separator"></div>
+      <% end %>
+    </div>
+
+    <!-- Carte -->
+    <div id="map">
+    </div>
+  </div>
+</div>
+
 <table>
   <thead>
     <tr>
@@ -47,3 +117,63 @@
 <br>
 
 <%= link_to 'New Location', new_location_path %>
+
+<script>
+  var map = L.map('map').setView([43.6044622, 1.4442469], 12);
+
+  const access_token = "pk.eyJ1IjoianVzdGF3YXkiLCJhIjoiY2p4MWo5eXZ2MDJhajQ4b2V4aTJjN2xxNiJ9.e8aHjz38Q2Z_MsvbFQejHQ";
+
+  L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=' + access_token, {
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+      id: 'mapbox/streets-v11',
+      tileSize: 512,
+      zoomOffset: -1
+  }).addTo(map);
+
+  let iconMap;
+  let locationId = 1;
+  let lat = 0;
+  let long = 0;
+  let popup;
+
+  <% @locations.each do |location| %>
+    iconMap = L.divIcon({
+        className: 'custom-div-icon',
+        html: `<div class="price-icon"><button><%= location.price %>€</button></div>`,
+        iconSize: [40,46, 28],
+        iconAnchor: [15, 42]
+    });
+    lat = document.querySelector('#location'+ locationId).getAttribute('data-lat');
+    long = document.querySelector('#location'+ locationId).getAttribute('data-long');
+
+    popup = L.popup({offset : [5, -30]})
+      .setContent(`<div class="map-popup"><div class="popup-carousel"><%= image_tag("airbnb.webp", :alt => "flexible") %><div class="img-caption"><button class="heart-img"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false"><path d="m16 28c7-4.733 14-10 14-17 0-1.792-.683-3.583-2.05-4.95-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05l-2.051 2.051-2.05-2.051c-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05-1.367 1.367-2.051 3.158-2.051 4.95 0 7 7 12.267 14 17z"></path></svg></button></div></div><div class="popup-infos"><div class="popup-header"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="display: block; height: 14px; width: 14px; fill: currentcolor;"><path d="M15.094 1.579l-4.124 8.885-9.86 1.27a1 1 0 0 0-.542 1.736l7.293 6.565-1.965 9.852a1 1 0 0 0 1.483 1.061L16 25.951l8.625 4.997a1 1 0 0 0 1.482-1.06l-1.965-9.853 7.293-6.565a1 1 0 0 0-.541-1.735l-9.86-1.271-4.127-8.885a1 1 0 0 0-1.814 0z" fill-rule="evenodd"></path></svg><span><span class="score"><%= location.avg_score %></span><span>(9)<!-- Nombre de commentaires --></span></div><div class="popup-body"><div class="popup-body-line"><%= location.nb_room %> pièce(s)&middot<%= location.type_location %> Studio&middot<%= location.nb_bed %> lit(s)</div><div class="popup-body-line"><p class="popup-description"><%= location.description %></p></div></div><div class="popup-footer"><div class="price"><span><%= location.price %>€ </span> / nuit</div></div></div></div>`);
+
+    L.marker([lat, long], {icon: iconMap})
+      .bindPopup(popup)
+      .addTo(map)
+
+    locationId+=1
+  <% end %>
+</script>
+
+<script>
+  document.addEventListener('turbolinks:load', () => {
+    let menuButton = document.querySelector('.display-menu-connexion');
+    let menu = document.querySelector('.menu-connexion');
+
+    menuButton.addEventListener("click", () => {
+      menu.classList.add('display-menu');
+    });
+
+    document.addEventListener('click', function(event) {
+      var target = event.target;
+      var classes = target.classList;
+
+      if(!classes.contains("display-menu-connexion") &&
+      !classes.contains("menu-svg") && !classes.contains("menu-path")){
+          menu.classList.remove('display-menu');
+      }
+    });
+  });
+</script>
