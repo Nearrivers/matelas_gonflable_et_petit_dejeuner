@@ -292,6 +292,7 @@
         width: 88%;
 
         .content-header {
+            margin-bottom: 2%;
 
             .overview {
                 display: flex;
@@ -345,6 +346,8 @@
                     font-weight: bold;
                     text-decoration: underline;
                     height: 30px;
+                    padding-left: 8px;
+                    padding-right: 8px;
 
                     &:hover {
                         background-color: #f3f3f3;
@@ -364,6 +367,70 @@
                         stroke-width: 2;
                         overflow: visible;
                         margin-right: 5px;
+                    }
+                }
+            }
+        }
+
+        .location-images {
+            display: flex;
+            height: 368px;
+            min-width: 300px;
+            justify-content: space-between;
+
+            .main-image {
+                max-height: 100%;
+                width: 100%;
+
+                img {
+                    height: 100%;
+                    max-width: 100%;
+                    border-radius: 15px 0 0 15px;
+                    object-fit: cover;
+                }
+            }
+
+            .subimages {
+                display: flex;
+                justify-content: space-between;
+                height: 100%;
+
+                img {
+                    height: 184px;
+                    width: 269px;
+                    padding-left: 7px;
+                }
+
+                .subimages-row-1 {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between !important;
+                    height: 100%;
+
+                    .second-image{
+                        img {
+                            height: 176px !important;
+                        }
+                    }
+                }
+
+                .subimages-row-2 {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between !important;
+                    height: 100%;
+
+                    .first-image {
+                        img{
+                            border-radius: 0 15px 0 0;
+                        }
+                    }
+
+                    .second-image{
+                        img {
+                            height: 176px !important;
+                            border-radius: 0 0 15px 0;
+                        }
                     }
                 }
             }
