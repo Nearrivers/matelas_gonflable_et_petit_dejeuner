@@ -281,3 +281,92 @@
         }
     }
 }
+
+// Page single location
+#single_location {
+    display: flex;
+    justify-content: center;
+
+    .content {
+        margin-top: 2%;
+        width: 88%;
+
+        .content-header {
+
+            .overview {
+                display: flex;
+                align-items: center;
+                width: 300px;
+
+                div {
+                    font-size: 15px;
+                    font-weight: bold;
+                }
+
+                div:not(:first-child) {
+                    margin-left: 5px;
+                }
+
+                div:not(:last-child) {
+                    margin-right: 5px;
+                }
+
+                .overview-score {
+
+                    display: flex;
+                    align-items: center;
+
+                    svg {
+                        color: rgb(255, 56, 92);
+                    }
+                }
+
+                .overview-comments {
+                    text-decoration: underline;
+                }
+            }
+
+            .location-action {
+                display: flex;
+
+                .share {
+                    margin-right: 5px;
+                }
+
+                button {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    border: none;
+                    background: none;
+                    border-radius: 9px;
+                    padding: 4px;
+                    font-size: 14px;
+                    font-weight: bold;
+                    text-decoration: underline;
+                    height: 30px;
+
+                    &:hover {
+                        background-color: #f3f3f3;
+                    }
+
+                    a {
+                        text-decoration: none;
+                        background: none !important;
+                    }
+
+                    svg {
+                        display: block;
+                        fill: none;
+                        height: 16px;
+                        width: 16px;
+                        stroke: currentcolor;
+                        stroke-width: 2;
+                        overflow: visible;
+                        margin-right: 5px;
+                    }
+                }
+            }
+        }
+    }
+}
