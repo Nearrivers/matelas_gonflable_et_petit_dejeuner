@@ -377,6 +377,7 @@
             height: 368px;
             min-width: 300px;
             justify-content: space-between;
+            margin-bottom: 3%;
 
             .main-image {
                 max-height: 100%;
@@ -427,9 +428,43 @@
                     }
 
                     .second-image{
+                        position: relative;
+
                         img {
                             height: 176px !important;
                             border-radius: 0 0 15px 0;
+                        }
+
+                        .img-button {
+                            position: absolute;
+                            bottom: 15px;
+                            right: 15px;
+                            border: 1px solid black;
+                            border-radius: 8px;
+                            width: 225px;
+                            height: 34px;
+                            background-color: white;
+                            
+                            &:hover {
+                                background-color: #f1f1f1;
+                                cursor: pointer;
+                            }
+
+                            a {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                height: 100%;
+                                width: 100%;
+                                justify-content: space-around;
+                                font-weight: bold;
+                                border-radius: 8px;
+
+                                &:hover {
+                                    background-color: inherit;
+                                    text-decoration: none;
+                                }
+                            }
                         }
                     }
                 }
