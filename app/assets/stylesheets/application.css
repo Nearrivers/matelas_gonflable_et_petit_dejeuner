@@ -37,8 +37,18 @@ html, body {
     width: 100%;
 }
 
+.alert {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
 .btn.btn-white {
     color: black;
     border: 1px solid black;
     background: white;
+}
+
+.app-connexion, .app-registration {
+    padding: 3em;
 }
