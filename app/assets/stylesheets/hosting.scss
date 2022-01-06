@@ -1,0 +1,81 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+section {
+  height: 100vh;
+  background: white;
+}
+
+section.home-video {
+  height: 100vh;
+
+  aside {
+    width: 50%;
+    height: 100%;
+    background: black;
+
+    div {
+      height: 100%;
+
+      h1 {
+        text-align: center;
+        margin-bottom: 2em;
+        color: white;
+      }
+      p {
+        color: white;
+      }
+    }
+
+    video {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+section.host-questions {
+  margin: 16em 1em;
+
+  .bg-questions {
+    background-image: url(asset-path(host-questions));
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 12px;
+    width: 100%;
+
+    h2 {
+      color: white;
+    }
+  }
+}
+
+section.host-aircover {
+  margin: 16em 1em;
+
+  .bg-grey {
+    background: rgb(247, 247, 247);
+    width: 100%;
+    border-radius: 10px;
+
+    h2 {
+      margin: 1.4em 1.4em 1.4em 0;
+    }
+
+    a {
+      border-radius: 6px;
+    }
+  }
+
+  .bg-aircover {
+    background-image: url(asset-path(aircover));
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+  }
+}

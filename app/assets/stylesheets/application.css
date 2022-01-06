@@ -36,3 +36,9 @@ html, body {
     background-color: black;
     width: 100%;
 }
+
+.btn.btn-white {
+    color: black;
+    border: 1px solid black;
+    background: white;
+}
