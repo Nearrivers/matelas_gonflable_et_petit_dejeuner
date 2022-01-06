@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_17_085240) do
+ActiveRecord::Schema.define(version: 2021_12_17_142633) do
 
   create_table "categories", force: :cascade do |t|
     t.string "value"
@@ -54,9 +54,10 @@ ActiveRecord::Schema.define(version: 2021_12_17_085240) do
 
   create_table "locations", force: :cascade do |t|
     t.string "name"
+    t.integer "nb_people_max"
     t.integer "nb_room"
     t.integer "nb_bed"
-    t.integer "type_location"
+    t.string "type_location"
     t.text "description"
     t.string "city"
     t.string "street"
