@@ -3,14 +3,12 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 
-section {
+section.home-video, section.host-questions, section.host-aircover {
   height: 100vh;
   background: white;
 }
 
 section.home-video {
-  height: 100vh;
-
   aside {
     width: 50%;
     height: 100%;
@@ -38,7 +36,7 @@ section.home-video {
 }
 
 section.host-questions {
-  margin: 16em 1em;
+  padding: 6em 1em;
 
   .bg-questions {
     background-image: url(asset-path(host-questions));
@@ -50,12 +48,13 @@ section.host-questions {
 
     h2 {
       color: white;
+      margin-bottom: 2em;
     }
   }
 }
 
 section.host-aircover {
-  margin: 16em 1em;
+  padding: 6em 1em;
 
   .bg-grey {
     background: rgb(247, 247, 247);
