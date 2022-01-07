@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 2021_12_17_142633) do
     t.text "description"
     t.string "city"
     t.string "street"
+    # TODO : Rajouter le pays dans le schéma des locations
     t.string "zip_code"
     t.float "lat"
     t.float "long"
