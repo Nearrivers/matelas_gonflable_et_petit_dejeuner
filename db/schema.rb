@@ -27,12 +27,12 @@ ActiveRecord::Schema.define(version: 2022_01_06_155003) do
     t.index ["user2_id"], name: "index_conversations_on_user2_id"
   end
 
-  create_table "equipment", force: :cascade do |t|
+  create_table "equipments", force: :cascade do |t|
     t.string "value"
     t.integer "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["category_id"], name: "index_equipment_on_category_id"
+    t.index ["category_id"], name: "index_equipments_on_category_id"
   end
 
   create_table "feedbacks", force: :cascade do |t|
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2022_01_06_155003) do
     t.index ["user_id"], name: "index_feedbacks_on_user_id"
   end
 
-  create_table "l_options", force: :cascade do |t|
+  create_table "location_options", force: :cascade do |t|
     t.string "value"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -61,7 +61,6 @@ ActiveRecord::Schema.define(version: 2022_01_06_155003) do
     t.text "description"
     t.string "city"
     t.string "street"
-    # TODO : Rajouter le pays dans le schéma des locations
     t.string "zip_code"
     t.float "lat"
     t.float "long"
@@ -79,6 +78,19 @@ ActiveRecord::Schema.define(version: 2022_01_06_155003) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["conversation_id"], name: "index_messages_on_conversation_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.integer "location_id"
+    t.integer "user_id"
+    t.date "date_in"
+    t.date "date_out"
+    t.integer "nbPeople"
+    t.string "strip_reference"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["location_id"], name: "index_reservations_on_location_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -100,5 +112,5 @@ ActiveRecord::Schema.define(version: 2022_01_06_155003) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "equipment", "categories"
+  add_foreign_key "equipments", "categories"
 end
