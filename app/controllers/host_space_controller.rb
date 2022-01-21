@@ -5,6 +5,10 @@ class HostSpaceController < ApplicationController
 
   end
 
+  def locations
+    @locations = Location.where(user_id: current_user.id)
+  end
+
   def check_is_host
     unless current_user.is_host
       # redirect to become host

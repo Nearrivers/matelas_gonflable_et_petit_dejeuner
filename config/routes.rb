@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   post 'hosting', to: "hosting#index"
 
   get 'host_space', to: "host_space#index"
+  get 'host_space/locations', to: "host_space#locations"
 
   root to: 'application#index'
 end

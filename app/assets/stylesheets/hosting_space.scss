@@ -7,10 +7,11 @@
   padding: 60px 40px;
   margin: 20px 0;
 
-  .no-travelers {
-    padding: 6em;
-    background-color: #f7f7f7;
-  }
+}
+
+.no-travelers, .no-locations {
+  padding: 6em;
+  background-color: #f7f7f7;
 }
 
 .advice-list {

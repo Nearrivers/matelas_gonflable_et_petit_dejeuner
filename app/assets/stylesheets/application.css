@@ -72,3 +72,12 @@ a:hover {
     display: flex !important;
     z-index: 999;
 }
+
+/**/
+th {
+    padding: 9px;
+}
+
+td {
+    padding: 9px;
+}
