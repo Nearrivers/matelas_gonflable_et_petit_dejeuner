@@ -61,3 +61,17 @@ a, i {
 a:hover {
     background: none;
 }
+
+
+/*dropdown*/
+.custom-dropdown-menu {
+
+}
+.soft-hidden {
+    display: none;
+}
+
+.display-menu {
+    display: flex !important;
+    z-index: 999;
+}
