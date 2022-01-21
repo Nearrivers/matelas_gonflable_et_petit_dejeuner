@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Locations</h1>
+<h1>Locations <%= @destination %></h1>
 
 <div>
   <!-- Filtres -->
@@ -9,7 +9,7 @@
   <div class="locations">
     <!-- Liste des locations -->
     <div class="locations-list">
-      <p>(total) logements trouvés</p>
+      <p><%= @locations.length %> logement(s) trouvé(s)</p>
       <% @locations.each do |location| %>
         <div>
           <a class="location" id="location<%= @cpt %>" data-lat="<%= location.lat %>" data-long="<%= location.long %>">
@@ -54,7 +54,7 @@
                     <span><span class="score"><%= location.avg_score %></span> ((nbComment) commentaires)</span>
                   </div>
                   <div class="total">
-                    <%= @total %>€ au total
+                    <%= @nbrOfDays * location.price %>€ au total
                   </div>
                 </div>
               </div>
@@ -72,7 +72,7 @@
   </div>
 </div>
 
-<table>
+<!-- <table>
   <thead>
     <tr>
       <th>Name</th>
@@ -116,7 +116,7 @@
 
 <br>
 
-<%= link_to 'New Location', new_location_path %>
+<%= link_to 'New Location', new_location_path %> -->
 
 <script>
   var map = L.map('map').setView([43.6044622, 1.4442469], 12);
