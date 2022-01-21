@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  *= require leaflet
+ *= require font-awesome
  */
 
 @font-face {
@@ -25,7 +26,7 @@ html, body {
     width: 100%;
 }
 
-* {
+*:not(i) {
     font-family: 'Raleway', sans-serif !important;
     padding: 0;
     margin: 0;
@@ -51,4 +52,12 @@ html, body {
 
 .app-connexion, .app-registration {
     padding: 3em;
+}
+
+a, i {
+    text-decoration: none !important;
+}
+
+a:hover {
+    background: none;
 }
