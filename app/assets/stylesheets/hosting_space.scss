@@ -1,200 +1,226 @@
 .bg-gradient-home {
-    background: linear-gradient(to right, #412a9d, #cf2478);
-    min-height: 260px;
+  background: linear-gradient(to right, #412a9d, #cf2478);
+  min-height: 260px;
+}
+
+.booking-list {
+  padding: 60px 40px;
+  margin: 20px 0;
+
+  .no-travelers {
+    padding: 6em;
+    background-color: #f7f7f7;
+  }
+}
+
+.advice-list {
+  background-color: black;
+  padding: 60px 40px;
+  min-height: 300px;
+
+  h2 {
+    color: white;
+    margin-bottom: 1.4em;
+  }
+
+  .card {
+    max-width: 24%;
+    background-color: #222222;
+
+    p {
+      color: white;
+      font-size: 1.1em;
+      margin: 0;
+    }
+
+    img {
+      max-width: 100%;
+      object-fit: cover;
+    }
+  }
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 .navbar.host-nav {
-    padding: 0 80px 0 80px !important;
-    min-height: 80px;
-    background-color: white!important;
-    color: black!important;
+  padding: 0 80px 0 80px !important;
+  min-height: 80px;
+  background-color: white !important;
+  color: black !important;
 
-    .container-fluid {
-        padding: 0;
+  .container-fluid {
+    padding: 0;
 
-        .navbar-collapse {
-            justify-content: space-between;
+    .navbar-collapse {
+      justify-content: space-between;
 
-            .navbar-nav {
+      .navbar-nav {
 
-                .items {
-                    position: relative;
-                }
-
-                .nav-item {
-                    cursor: pointer;
-                    text-align: center;
-
-                    svg {
-                        fill: #ff385c;
-                    }
-                    .nav-link {
-                        color: #717171 !important;
-                        font-size: 16px;
-                        border-radius: 16px;
-
-                        &.active {
-                            color: black !important;
-                        }
-
-                        &:hover {
-                            background: #eee !important;
-                            color: #717171 !important;
-                        }
-
-                        &::after {
-                            border-bottom: 0;
-                        }
-
-                        &:not(:hover)::after {
-                            content: "";
-                            position: absolute;
-                            bottom: 0;
-                            left: 45%;
-                            width: 18px;
-                            border-radius: 1px !important;
-                            height: 2px;
-                            border-bottom: 2px solid #000000;
-                            transition: 0.2s -ms-transform;
-                            transform: scaleX(1) !important;
-                        }
-
-                        &:not(.active)::after {
-                            width: 5px;
-                            display: none;
-                        }
-                    }
-
-                    &:hover > .nav-link:not(.active)::after{
-                        border-bottom: 0;
-                    }
-                }
-            }
-
-            .devenez-hote {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                max-height: 34px;
-
-                .navbar-nav {
-                    height: 42px;
-                    align-items: center;
-
-                    &:first-child {
-                        padding-right: 10px;
-
-                        .nav-link {
-                            border-radius: 18px;
-                            font-weight: bold;
-                            font-size: 14px;
-                            padding: 10px;
-                            height: 100%;
-                        }
-                    }
-
-                    .nav-link::after {
-                        display: none;
-                    }
-
-                    .nav-link:hover {
-                        background-color: #333333;
-                    }
-
-                    .user-dropdown {
-                        display: flex;
-                        align-items: center;
-                        position: relative;
-                        width: 72px;
-                        height: 42px;
-                        justify-content: space-evenly;
-                        background-color: #fff;
-                        border-radius: 40px;
-
-                        button {
-                            display: flex;
-                            align-items: center;
-                            background-color: transparent;
-                            border: none;
-
-                            &:focus {
-                                box-shadow: none;
-                            }
-
-                            &::after {
-                                display: none;
-                            }
-
-                        }
-
-                        .burger-icon svg {
-                            fill: black;
-                        }
-
-                        .user-icon svg {
-                            fill: gray;
-                        }
-
-                        .menu-connexion-profile {
-                            position: absolute;
-                            top: 120%;
-                            right: 0;
-                            width: 220px;
-                            background-color: white;
-                            border: none;
-                            border-radius: 10px;
-                            display: none;
-                            flex-direction: column;
-                            padding-top: 10px;
-                            padding-bottom: 10px;
-
-                            div:not(.dropdown-divider) {
-                                height: 38px;
-                                cursor: pointer;
-                                vertical-align: center;
-
-                                &:hover {
-                                    background-color: #eeeeee;
-                                }
-
-                                .menu-link {
-                                    display: block;
-                                    text-decoration: none;
-                                    color: black;
-                                    padding: 10px;
-                                    cursor: pointer;
-                                    &:hover {
-                                        background-color: #eeeeee;
-                                    }
-                                }
-
-                                .inscription {
-                                    font-weight: bold;
-                                }
-                            }
-                        }
-
-                        .display-menu-profile {
-                            display: flex !important;
-                            z-index: 999;
-                        }
-                    }
-                }
-            }
+        .items {
+          position: relative;
         }
+
+        .nav-item {
+          cursor: pointer;
+          text-align: center;
+
+          svg {
+            fill: #ff385c;
+          }
+
+          .nav-link {
+            color: #717171 !important;
+            font-size: 16px;
+            border-radius: 16px;
+
+            &.active {
+              color: black !important;
+            }
+
+            &:hover {
+              background: #eee !important;
+              color: #717171 !important;
+            }
+
+            &::after {
+              border-bottom: 0;
+            }
+
+            &:not(:hover)::after {
+              content: "";
+              position: absolute;
+              bottom: 0;
+              left: 45%;
+              width: 18px;
+              border-radius: 1px !important;
+              height: 2px;
+              border-bottom: 2px solid #000000;
+              transition: 0.2s -ms-transform;
+              transform: scaleX(1) !important;
+            }
+
+            &:not(.active)::after {
+              width: 5px;
+              display: none;
+            }
+          }
+
+          &:hover > .nav-link:not(.active)::after {
+            border-bottom: 0;
+          }
+        }
+      }
+
+      .devenez-hote {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-height: 34px;
+
+        .navbar-nav {
+          height: 42px;
+          align-items: center;
+
+          &:first-child {
+            padding-right: 10px;
+
+            .nav-link {
+              border-radius: 18px;
+              font-weight: bold;
+              font-size: 14px;
+              padding: 10px;
+              height: 100%;
+            }
+          }
+
+          .nav-link::after {
+            display: none;
+          }
+
+          .nav-link:hover {
+            background-color: #333333;
+          }
+
+          .user-dropdown {
+            display: flex;
+            align-items: center;
+            position: relative;
+            width: 72px;
+            height: 42px;
+            justify-content: space-evenly;
+            background-color: #fff;
+            border-radius: 40px;
+
+            button {
+              display: flex;
+              align-items: center;
+              background-color: transparent;
+              border: none;
+
+              &:focus {
+                box-shadow: none;
+              }
+
+              &::after {
+                display: none;
+              }
+
+            }
+
+            .burger-icon svg {
+              fill: black;
+            }
+
+            .user-icon svg {
+              fill: gray;
+            }
+
+            .menu-connexion-profile {
+              position: absolute;
+              top: 120%;
+              right: 0;
+              width: 220px;
+              background-color: white;
+              border: none;
+              border-radius: 10px;
+              display: none;
+              flex-direction: column;
+              padding-top: 10px;
+              padding-bottom: 10px;
+
+              div:not(.dropdown-divider) {
+                height: 38px;
+                cursor: pointer;
+                vertical-align: center;
+
+                &:hover {
+                  background-color: #eeeeee;
+                }
+
+                .menu-link {
+                  display: block;
+                  text-decoration: none;
+                  color: black;
+                  padding: 10px;
+                  cursor: pointer;
+
+                  &:hover {
+                    background-color: #eeeeee;
+                  }
+                }
+
+                .inscription {
+                  font-weight: bold;
+                }
+              }
+            }
+
+            .display-menu-profile {
+              display: flex !important;
+              z-index: 999;
+            }
+          }
+        }
+      }
     }
+  }
 }
