@@ -3,4 +3,3 @@ class DropAllTables < ActiveRecord::Migration[6.1]
     drop_table :locations
   end
 end
-na
