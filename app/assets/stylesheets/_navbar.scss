@@ -280,6 +280,24 @@
             align-items: center;
             justify-content: space-between;
 
+            .searchbar-item {
+
+                input {
+                    border: none;
+                    width: 100%;
+                    background-color: inherit;
+                    position: relative;
+
+                    &::placeholder {
+                        overflow: visible !important;
+                    }
+
+                    &:focus {
+                        outline: none;
+                    }
+                }
+            }
+
             &:hover, &.hover .searchbar-item {
                 cursor: pointer;
                 border-radius:  40px;
@@ -301,14 +319,6 @@
                     align-items: center;
                     color: white;
                     font-weight: 700;
-
-                    // .magnifying-glass{
-                    //     height: 16px;
-                    //     width: 16px;
-                    // }
-                    // .rechercher {
-                    //     display: none;
-                    // }
                 }
             }
         }

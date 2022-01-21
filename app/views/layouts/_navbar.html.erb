@@ -64,39 +64,41 @@
 <!-- Lien vers la vidéo de la page qui permet de devenir hôte
 https://a0.muscache.com/v/a9/a7/a9a7873c-95de-5e37-8995-a5abb5b6b02f/a9a7873c95de5e378995a5abb5b6b02f_4000k_1.mp4 -->
 <div class="searchbar-section">
-    <div class="searchbar">
-        <div class="searchbar-item address-picker">
-            <div class="item-label">Adresse</div>
-            <input type="text" class="item-label" placeholder="Où allez-vous ?"/>
-        </div>
-        <div class="separator"></div>
-        <div class="dates-pickers">
-            <div class="searchbar-item arrival-picker">
-                <div class="item-label">Arrivée</div>
-                <div class="item-label"><input type="date" class="datepicker-input" id="depart" name="depart" placeholder = "Quand ?"></div>
+    <form>
+        <div class="searchbar">
+            <div class="searchbar-item address-picker">
+                <div class="item-label">Adresse</div>
+                <input name="where" id="where" type="text" class="item-label" placeholder="Où allez-vous ?"/>
             </div>
             <div class="separator"></div>
-            <div class="searchbar-item departure-picker">
-                <div class="item-label">Départ</div>
-                <div class="item-label"><input type="date" class="datepicker-input" id="arrivee" name="arrivee" placeholder = "Quand ?"></div>
+            <div class="dates-pickers">
+                <div class="searchbar-item arrival-picker">
+                    <div class="item-label">Arrivée</div>
+                    <div class="item-label"><input type="date" class="datepicker-input" id="depart" name="depart"></div>
+                </div>
+                <div class="separator"></div>
+                <div class="searchbar-item departure-picker">
+                    <div class="item-label">Départ</div>
+                    <div class="item-label"><input type="date" class="datepicker-input" id="arrivee" name="arrivee"></div>
+                </div>
+            </div>
+            <div class="separator"></div>
+            <div class="travelers-picker">
+                <div class="searchbar-item">
+                    <div class="item-label">Voyageurs</div>
+                    <div class="item-label"><input type="number" id="travelers" name="travelers" placeholder = "Combien ?"></div>
+                </div>
+                <div class="search-glass">
+                    <button class="search-button">
+                        <div class="magnifying-glass">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-search"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>
+                        </div>
+                        <div class="rechercher">Rechercher</div>
+                    </button>
+                </div>
             </div>
         </div>
-        <div class="separator"></div>
-        <div class="travelers-picker">
-            <div class="searchbar-item">
-                <div class="item-label">Voyageurs</div>
-                <div class="item-label">Qui ?</div>
-            </div>
-            <div class="search-glass">
-                <button class="search-button">
-                    <div class="magnifying-glass">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-search"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>
-                    </div>
-                    <div class="rechercher">Rechercher</div>
-                </button>
-            </div>
-        </div>
-    </div>
+    </form>
 </div>
 
 <script>
@@ -133,5 +135,18 @@ https://a0.muscache.com/v/a9/a7/a9a7873c-95de-5e37-8995-a5abb5b6b02f/a9a7873c95d
         var maxDate = year + '-' + month + '-' + day;
         departPicker.setAttribute('min', maxDate);
         arriveePicker.setAttribute('min', maxDate);
+
+        // Blur event is fired when the element loses focus
+        departPicker.addEventListener('blur', function(event) {
+            let departDate = departPicker.value;
+
+            let arriveeDate = arriveePicker.value;
+
+            if (arriveeDate < departDate) {
+                arriveeDate = departDate;
+            }
+
+            arriveePicker.setAttribute('min', departDate);
+        });
     });
 </script>
