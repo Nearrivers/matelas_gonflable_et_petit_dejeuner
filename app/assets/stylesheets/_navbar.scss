@@ -232,6 +232,38 @@
 
         .dates-pickers {
             display: flex;
+            position: relative;
+
+            input[type="date"] {
+                width: 80px;
+                background-color: inherit;
+                border: none !important;
+                overflow-x: visible;
+
+                &:focus {
+                    outline: none;
+                }
+
+                &::-webkit-calendar-picker-indicator {
+                    color: white;
+                }
+            }
+
+            .datepicker-input {
+                cursor: pointer;
+            }
+
+            .datepicker-input::-webkit-calendar-picker-indicator {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                opacity: 0;
+                cursor: pointer;
+            }
 
             .arrival-picker {
                 width: 158px;

@@ -73,12 +73,12 @@ https://a0.muscache.com/v/a9/a7/a9a7873c-95de-5e37-8995-a5abb5b6b02f/a9a7873c95d
         <div class="dates-pickers">
             <div class="searchbar-item arrival-picker">
                 <div class="item-label">Arrivée</div>
-                <div class="item-label">Quand ?</div>
+                <div class="item-label"><input type="date" class="datepicker-input" id="depart" name="depart" placeholder = "Quand ?"></div>
             </div>
             <div class="separator"></div>
             <div class="searchbar-item departure-picker">
                 <div class="item-label">Départ</div>
-                <div class="item-label">Quand ?</div>
+                <div class="item-label"><input type="date" class="datepicker-input" id="arrivee" name="arrivee" placeholder = "Quand ?"></div>
             </div>
         </div>
         <div class="separator"></div>
@@ -117,5 +117,21 @@ https://a0.muscache.com/v/a9/a7/a9a7873c-95de-5e37-8995-a5abb5b6b02f/a9a7873c95d
                 menu.classList.remove('display-menu');
             }
         });
+
+        let departPicker = document.getElementById('depart');
+        let arriveePicker = document.getElementById('arrivee');
+        var dtToday = new Date();
+
+        var month = dtToday.getMonth() + 1;
+        var day = dtToday.getDate();
+        var year = dtToday.getFullYear();
+        if(month < 10)
+            month = '0' + month.toString();
+        if(day < 10)
+            day = '0' + day.toString();
+
+        var maxDate = year + '-' + month + '-' + day;
+        departPicker.setAttribute('min', maxDate);
+        arriveePicker.setAttribute('min', maxDate);
     });
 </script>
