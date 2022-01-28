@@ -6,5 +6,6 @@ class User < ApplicationRecord
 
   has_many :user_fav
   has_many :locations
+  has_many :reservations
 
 end

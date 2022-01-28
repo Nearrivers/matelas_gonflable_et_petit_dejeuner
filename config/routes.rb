@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :reservations
   resources :user_favs
   resources :locations
   devise_for :users
@@ -12,7 +13,6 @@ Rails.application.routes.draw do
 
   resources :users
   resources :feedbacks
-  resources :reservations
   resources :equipments
   resources :categories
   resources :l_options

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_28_094618) do
+ActiveRecord::Schema.define(version: 2022_01_28_141035) do
 
   create_table "categories", force: :cascade do |t|
     t.string "value"
@@ -83,12 +83,14 @@ ActiveRecord::Schema.define(version: 2022_01_28_094618) do
   end
 
   create_table "reservations", force: :cascade do |t|
-    t.integer "location_id"
-    t.integer "user_id"
-    t.date "date_in"
-    t.date "date_out"
-    t.integer "nbPeople"
-    t.string "strip_reference"
+    t.integer "user_id", null: false
+    t.integer "location_id", null: false
+    t.float "price"
+    t.datetime "date_in"
+    t.datetime "date_out"
+    t.integer "nb_people"
+    t.string "stripe_reference"
+    t.boolean "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["location_id"], name: "index_reservations_on_location_id"
@@ -125,6 +127,8 @@ ActiveRecord::Schema.define(version: 2022_01_28_094618) do
 
   add_foreign_key "equipments", "categories"
   add_foreign_key "locations", "users"
+  add_foreign_key "reservations", "locations"
+  add_foreign_key "reservations", "users"
   add_foreign_key "user_favs", "locations"
   add_foreign_key "user_favs", "users"
 end

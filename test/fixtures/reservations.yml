@@ -1,17 +1,21 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  location: 
-  user: 
-  date_in: 2021-12-03
-  date_out: 2021-12-03
-  nbPeople: 1
-  strip_reference: MyString
+  user: one
+  location: one
+  price: 1.5
+  date_in: 2022-01-28 15:10:35
+  date_out: 2022-01-28 15:10:35
+  nb_people: 1
+  stripe_reference: MyString
+  status: false
 
 two:
-  location: 
-  user: 
-  date_in: 2021-12-03
-  date_out: 2021-12-03
-  nbPeople: 1
-  strip_reference: MyString
+  user: two
+  location: two
+  price: 1.5
+  date_in: 2022-01-28 15:10:35
+  date_out: 2022-01-28 15:10:35
+  nb_people: 1
+  stripe_reference: MyString
+  status: false

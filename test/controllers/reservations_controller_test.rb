@@ -17,7 +17,7 @@ class ReservationsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create reservation" do
     assert_difference('Reservation.count') do
-      post reservations_url, params: { reservation: { date_in: @reservation.date_in, date_out: @reservation.date_out, location: @reservation.location, nbPeople: @reservation.nbPeople, strip_reference: @reservation.strip_reference, user: @reservation.user } }
+      post reservations_url, params: { reservation: { date_in: @reservation.date_in, date_out: @reservation.date_out, location_id: @reservation.location_id, nb_people: @reservation.nb_people, price: @reservation.price, status: @reservation.status, stripe_reference: @reservation.stripe_reference, user_id: @reservation.user_id } }
     end
 
     assert_redirected_to reservation_url(Reservation.last)
@@ -34,7 +34,7 @@ class ReservationsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update reservation" do
-    patch reservation_url(@reservation), params: { reservation: { date_in: @reservation.date_in, date_out: @reservation.date_out, location: @reservation.location, nbPeople: @reservation.nbPeople, strip_reference: @reservation.strip_reference, user: @reservation.user } }
+    patch reservation_url(@reservation), params: { reservation: { date_in: @reservation.date_in, date_out: @reservation.date_out, location_id: @reservation.location_id, nb_people: @reservation.nb_people, price: @reservation.price, status: @reservation.status, stripe_reference: @reservation.stripe_reference, user_id: @reservation.user_id } }
     assert_redirected_to reservation_url(@reservation)
   end
 
