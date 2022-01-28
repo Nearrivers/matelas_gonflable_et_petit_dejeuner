@@ -62,8 +62,8 @@ ActiveRecord::Schema.define(version: 2022_01_28_094618) do
     t.string "city"
     t.string "street"
     t.string "zip_code"
-    t.float "lat"
-    t.float "long"
+    t.float "latitude"
+    t.float "longitude"
     t.float "price"
     t.float "avg_score"
     t.datetime "created_at", precision: 6, null: false

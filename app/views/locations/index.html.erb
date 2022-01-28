@@ -1,18 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Locations <%= @destination %></h1>
-
 <div>
-  <!-- Filtres -->
-  <div>
-  </div>
   <div class="locations">
     <!-- Liste des locations -->
     <div class="locations-list">
       <p><%= @locations.length %> logement(s) trouvé(s)</p>
       <% @locations.each do |location| %>
         <div>
-          <a class="location" id="location<%= @cpt %>" data-lat="<%= location.lat %>" data-long="<%= location.long %>">
+          <a class="location" id="location<%= @cpt %>" data-lat="<%= location.latitude %>" data-long="<%= location.longitude %>">
             <div class="carousel">
               <!-- Ici on mettre les images de la location -->
               <%= image_tag("airbnb.webp", :alt => "flexible") %>
@@ -39,9 +34,6 @@
                 </div>
                 <div class="location-body-line">
                   (Équipements de la location)
-                </div>
-                <div class="location-body-line">
-                  <%= location.description %>
                 </div>
               </div>
               <div class="location-footer">
@@ -74,7 +66,7 @@
   </div>
 </div>
 
-<!-- <table>
+<table>
   <thead>
     <tr>
       <th>Name</th>
@@ -104,8 +96,8 @@
         <td><%= location.city %></td>
         <td><%= location.street %></td>
         <td><%= location.zip_code %></td>
-        <td><%= location.lat %></td>
-        <td><%= location.long %></td>
+        <td><%= location.latitude %></td>
+        <td><%= location.longitude %></td>
         <td><%= location.price %></td>
         <td><%= location.avg_score %></td>
         <td><%= link_to 'Voir', location %></td>
@@ -118,10 +110,11 @@
 
 <br>
 
-<%= link_to 'New Location', new_location_path %> -->
+<%= link_to 'New Location', new_location_path %>
 
 <script>
-  var map = L.map('map').setView([43.6044622, 1.4442469], 12);
+  let coordinates = <%= escape_javascript  @results.first.coordinates.to_json %>
+  var map = L.map('map').setView(coordinates, 12);
 
   var access_token = "pk.eyJ1IjoianVzdGF3YXkiLCJhIjoiY2p4MWo5eXZ2MDJhajQ4b2V4aTJjN2xxNiJ9.e8aHjz38Q2Z_MsvbFQejHQ";
 

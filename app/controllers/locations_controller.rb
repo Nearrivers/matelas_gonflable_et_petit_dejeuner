@@ -26,7 +26,8 @@ class LocationsController < ApplicationController
     # to_i transforms the string into an integer (params[] always gives strings)
     arrival = Date.strptime(params[:arrivee], "%Y-%m-%d")
     departure = Date.strptime(params[:depart], "%Y-%m-%d")
-    @locations = Location.where("city = ?", params[:where]).where("nb_people_max >= ?", params[:travelers].to_i)
+    @results = Geocoder.search(params[:where])
+    @locations = Location.near(params[:where]).where("nb_people_max >= ?", params[:travelers].to_i)
     @nbrOfDays = departure - arrival
     @total = 150
     @cpt = 1
