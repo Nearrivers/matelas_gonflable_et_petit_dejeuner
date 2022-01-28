@@ -104,7 +104,8 @@
       <div class="location-infos">
         <div class="location-infos-header">
           <h5>Type de logement : <%= @location.type_location %> todo</h5>
-          <h5>Hôte: placeholder</h5>
+          <p class="p-2"></p>
+          <h5>Hôte: <%= @location.user.name %></h5>
         </div>
         <div class="location-infos-footer">
           <span><%= @location.nb_room %> pièce(s)</span>
@@ -192,7 +193,10 @@
         </div>
       </div>
       <div class="reservation">
-        <form class="reservation-box" method="POST">
+        <form class="reservation-box" action="<%= reservations_url %>" method="POST">
+          <input type="hidden" name="user_id" value="<%= current_user.id %>">
+          <input type="hidden" name="location_id" value="<%= @location.id %>">
+          <input type="hidden" name="price" value="<%= @location.price %>">
           <div class="box-header">
             <div class="box-header-left">
               <span><%= @location.price %>€</span> / nuit
@@ -205,7 +209,7 @@
                 <%= @location.avg_score %> ·
               </div>
               <div class="box-comments">
-                20 commentaires
+                nb commentaires
               </div>
             </div>
           </div>
@@ -214,16 +218,19 @@
               <div class="form-dates">
                 <div class="form-arrival">
                   <div class="form-label">ARRIVÉE</div>
-                  <div class="form-input"><input type="date" class="datepicker-input" id="arrival" name="arrival" required></div>
+                  <div class="form-input">
+                    <input type="date" class="datepicker-input" id="arrival" name="date_in" required></div>
                 </div>
                 <div class="form-departure">
                   <div class="form-label">DÉPART</div>
-                  <div class="form-input"><input type="date" class="datepicker-input" id="departure" name="departure" required></div>
+                  <div class="form-input">
+                    <input type="date" class="datepicker-input" id="departure" name="date_out" required></div>
                 </div>
               </div>
               <div class="form-travelers">
                 <div class="form-label">VOYAGEURS</div>
-                <div class="form-input"><input type="number" id="travelers" name="travelers" placeholder = "Combien ?" required min="0"></div>
+                <div class="form-input">
+                  <input type="number" id="travelers" max="<%= @location.nb_people_max %>" name="nb_people" placeholder="Combien ?" required min="0"></div>
               </div>
             </div>
             <button>Réserver</button>
@@ -242,33 +249,33 @@
 
 <script>
     document.addEventListener('turbolinks:load', () => {
-      let departPicker = document.getElementById('departure');
-      let arriveePicker = document.getElementById('arrival');
-      var dtToday = new Date();
+        let departPicker = document.getElementById('departure');
+        let arriveePicker = document.getElementById('arrival');
+        var dtToday = new Date();
 
-      var month = dtToday.getMonth() + 1;
-      var day = dtToday.getDate();
-      var year = dtToday.getFullYear();
-      if(month < 10)
-          month = '0' + month.toString();
-      if(day < 10)
-          day = '0' + day.toString();
+        var month = dtToday.getMonth() + 1;
+        var day = dtToday.getDate();
+        var year = dtToday.getFullYear();
+        if (month < 10)
+            month = '0' + month.toString();
+        if (day < 10)
+            day = '0' + day.toString();
 
-      var maxDate = year + '-' + month + '-' + day;
-      departPicker.setAttribute('min', maxDate);
-      arriveePicker.setAttribute('min', maxDate);
+        var maxDate = year + '-' + month + '-' + day;
+        departPicker.setAttribute('min', maxDate);
+        arriveePicker.setAttribute('min', maxDate);
 
-      // Blur event is fired when the element loses focus
-      arriveePicker.addEventListener('blur', function(event) {
-          let departDate = departPicker.value;
+        // Blur event is fired when the element loses focus
+        arriveePicker.addEventListener('blur', function (event) {
+            let departDate = departPicker.value;
 
-          let arriveeDate = arriveePicker.value;
+            let arriveeDate = arriveePicker.value;
 
-          if (arriveeDate > departDate) {
-              departDate = arriveeDate;
-          }
+            if (arriveeDate > departDate) {
+                departDate = arriveeDate;
+            }
 
-          departPicker.setAttribute('min', departDate);
-      });
+            departPicker.setAttribute('min', departDate);
+        });
     });
 </script>
