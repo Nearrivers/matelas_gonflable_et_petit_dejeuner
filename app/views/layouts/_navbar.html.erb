@@ -90,25 +90,25 @@ https://a0.muscache.com/v/a9/a7/a9a7873c-95de-5e37-8995-a5abb5b6b02f/a9a7873c95d
     <div class="searchbar">
       <div class="searchbar-item address-picker">
         <div class="item-label">Destination</div>
-        <input name="where" id="where" type="text" class="item-label" placeholder="Où allez-vous ?"/>
+        <input name="where" id="where" type="text" class="item-label" placeholder="Où allez-vous ?" required/>
       </div>
       <div class="separator"></div>
       <div class="dates-pickers">
         <div class="searchbar-item arrival-picker">
           <div class="item-label">Arrivée</div>
-          <div class="item-label"><input type="date" class="datepicker-input" id="arrivee" name="arrivee"></div>
+          <div class="item-label"><input type="date" class="datepicker-input" id="arrivee" name="arrivee" required></div>
         </div>
         <div class="separator"></div>
         <div class="searchbar-item departure-picker">
           <div class="item-label">Départ</div>
-          <div class="item-label"><input type="date" class="datepicker-input" id="depart" name="depart"></div>
+          <div class="item-label"><input type="date" class="datepicker-input" id="depart" name="depart" required></div>
         </div>
       </div>
       <div class="separator"></div>
       <div class="travelers-picker">
         <div class="searchbar-item">
           <div class="item-label">Voyageurs</div>
-          <div class="item-label"><input type="number" id="travelers" name="travelers" placeholder = "Combien ?"></div>
+          <div class="item-label"><input type="number" id="travelers" name="travelers" placeholder = "Combien ?" required min="0"></div>
         </div>
         <div class="search-glass">
           <button type="submit" class="search-button">
