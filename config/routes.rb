@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   #fav related
   get '/users/fav', to: "users#my_favs", as: 'current_user_favs'
-  get '/locations/:id/fav', to: "locations#add_to_fav"
+  get '/locations/:id/fav', to: "locations#add_to_fav", as: "add_to_fav"
 
   resources :users
   resources :feedbacks

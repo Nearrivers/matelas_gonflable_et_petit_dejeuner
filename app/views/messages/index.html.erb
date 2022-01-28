@@ -20,7 +20,7 @@
         <td><%= message.conversation %></td>
         <td><%= link_to 'Voir', message %></td>
         <td><%= link_to 'Editer', edit_message_path(message) %></td>
-        <td><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Êtes-vous sûr ?' } %></td>
+        <td><%= link_to 'Supprimer', message, method: :delete, data: { confirm: 'Êtes-vous sûr ?' } %></td>
       </tr>
     <% end %>
   </tbody>
