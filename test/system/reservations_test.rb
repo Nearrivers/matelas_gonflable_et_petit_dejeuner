@@ -16,10 +16,12 @@ class ReservationsTest < ApplicationSystemTestCase
 
     fill_in "Date in", with: @reservation.date_in
     fill_in "Date out", with: @reservation.date_out
-    fill_in "Location", with: @reservation.location
-    fill_in "Nbpeople", with: @reservation.nbPeople
-    fill_in "Strip reference", with: @reservation.strip_reference
-    fill_in "User", with: @reservation.user
+    fill_in "Location", with: @reservation.location_id
+    fill_in "Nb people", with: @reservation.nb_people
+    fill_in "Price", with: @reservation.price
+    check "Status" if @reservation.status
+    fill_in "Stripe reference", with: @reservation.stripe_reference
+    fill_in "User", with: @reservation.user_id
     click_on "Create Reservation"
 
     assert_text "Reservation was successfully created"
@@ -32,10 +34,12 @@ class ReservationsTest < ApplicationSystemTestCase
 
     fill_in "Date in", with: @reservation.date_in
     fill_in "Date out", with: @reservation.date_out
-    fill_in "Location", with: @reservation.location
-    fill_in "Nbpeople", with: @reservation.nbPeople
-    fill_in "Strip reference", with: @reservation.strip_reference
-    fill_in "User", with: @reservation.user
+    fill_in "Location", with: @reservation.location_id
+    fill_in "Nb people", with: @reservation.nb_people
+    fill_in "Price", with: @reservation.price
+    check "Status" if @reservation.status
+    fill_in "Stripe reference", with: @reservation.stripe_reference
+    fill_in "User", with: @reservation.user_id
     click_on "Update Reservation"
 
     assert_text "Reservation was successfully updated"

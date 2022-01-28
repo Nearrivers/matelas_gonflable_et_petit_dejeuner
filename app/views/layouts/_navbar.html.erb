@@ -52,6 +52,12 @@
             <div class="menu-connexion" id="menu-connexion">
               <% if user_signed_in? %>
                 <div>
+                  <%= link_to 'Mes favoris', user_favs_path, class: 'menu-link'  %>
+                </div>
+                <div>
+                  <%= link_to 'Mes réservations', reservations_path, class: 'menu-link'  %>
+                </div>
+                <div>
                   <%= link_to 'Déconnexion', destroy_user_session_path, class: 'menu-link', method: :delete %>
                 </div>
               <% else %>

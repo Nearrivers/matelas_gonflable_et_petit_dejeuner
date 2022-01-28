@@ -1,13 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Location:</strong>
-  <%= @reservation.location %>
+  <strong>User:</strong>
+  <%= @reservation.user_id %>
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @reservation.user %>
+  <strong>Location:</strong>
+  <%= @reservation.location_id %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @reservation.price %>
 </p>
 
 <p>
@@ -21,14 +26,19 @@
 </p>
 
 <p>
-  <strong>Nbpeople:</strong>
-  <%= @reservation.nbPeople %>
+  <strong>Nb people:</strong>
+  <%= @reservation.nb_people %>
 </p>
 
 <p>
-  <strong>Strip reference:</strong>
-  <%= @reservation.strip_reference %>
+  <strong>Stripe reference:</strong>
+  <%= @reservation.stripe_reference %>
 </p>
 
-<%= link_to 'Editer', edit_reservation_path(@reservation) %> |
-<%= link_to 'Retour', reservations_path %>
+<p>
+  <strong>Status:</strong>
+  <%= @reservation.status %>
+</p>
+
+<%= link_to 'Edit', edit_reservation_path(@reservation) %> |
+<%= link_to 'Back', reservations_path %>

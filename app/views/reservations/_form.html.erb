@@ -11,37 +11,47 @@
     </div>
   <% end %>
 
-  <div class="field form-group">
-    <%= form.label :location %>
-    <%= form.text_field :location %>
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id %>
   </div>
 
-  <div class="field form-group">
-    <%= form.label :user %>
-    <%= form.text_field :user %>
+  <div class="field">
+    <%= form.label :location_id %>
+    <%= form.text_field :location_id %>
   </div>
 
-  <div class="field form-group">
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price %>
+  </div>
+
+  <div class="field">
     <%= form.label :date_in %>
-    <%= form.date_select :date_in %>
+    <%= form.datetime_select :date_in %>
   </div>
 
-  <div class="field form-group">
+  <div class="field">
     <%= form.label :date_out %>
-    <%= form.date_select :date_out %>
+    <%= form.datetime_select :date_out %>
   </div>
 
-  <div class="field form-group">
-    <%= form.label :nbPeople %>
-    <%= form.number_field :nbPeople %>
+  <div class="field">
+    <%= form.label :nb_people %>
+    <%= form.number_field :nb_people %>
   </div>
 
-  <div class="field form-group">
-    <%= form.label :strip_reference %>
-    <%= form.text_field :strip_reference %>
+  <div class="field">
+    <%= form.label :stripe_reference %>
+    <%= form.text_field :stripe_reference %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.check_box :status %>
   </div>
 
   <div class="actions">
-    <%= form.submit class: 'btn btn-primary' %>
+    <%= form.submit %>
   </div>
 <% end %>
