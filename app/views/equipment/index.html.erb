@@ -16,9 +16,9 @@
       <tr>
         <td><%= equipment.value %></td>
         <td><%= equipment.category_id %></td>
-        <td><%= link_to 'Show', equipment %></td>
-        <td><%= link_to 'Edit', edit_equipment_path(equipment) %></td>
-        <td><%= link_to 'Destroy', equipment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Voir', equipment %></td>
+        <td><%= link_to 'Editer', edit_equipment_path(equipment) %></td>
+        <td><%= link_to 'Destroy', equipment, method: :delete, data: { confirm: 'Êtes-vous sûr ?' } %></td>
       </tr>
     <% end %>
   </tbody>

@@ -11,22 +11,22 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :content %>
     <%= form.text_field :content %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :user %>
     <%= form.text_field :user %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :conversation %>
     <%= form.text_field :conversation %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-primary' %>
   </div>
 <% end %>

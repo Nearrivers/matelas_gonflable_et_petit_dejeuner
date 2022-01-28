@@ -11,37 +11,37 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :location %>
     <%= form.text_field :location %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :user %>
     <%= form.text_field :user %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :date_in %>
     <%= form.date_select :date_in %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :date_out %>
     <%= form.date_select :date_out %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :nbPeople %>
     <%= form.number_field :nbPeople %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :strip_reference %>
     <%= form.text_field :strip_reference %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-primary' %>
   </div>
 <% end %>

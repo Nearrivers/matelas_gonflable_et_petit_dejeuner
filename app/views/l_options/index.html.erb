@@ -14,9 +14,9 @@
     <% @l_options.each do |l_option| %>
       <tr>
         <td><%= l_option.value %></td>
-        <td><%= link_to 'Show', l_option %></td>
-        <td><%= link_to 'Edit', edit_l_option_path(l_option) %></td>
-        <td><%= link_to 'Destroy', l_option, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Voir', l_option %></td>
+        <td><%= link_to 'Editer', edit_l_option_path(l_option) %></td>
+        <td><%= link_to 'Destroy', l_option, method: :delete, data: { confirm: 'Êtes-vous sûr ?' } %></td>
       </tr>
     <% end %>
   </tbody>

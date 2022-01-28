@@ -11,73 +11,73 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :nb_people_max %>
-    <%= form.number_field :nb_people_max %>
+    <%= form.number_field :nb_people_max, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :nb_room %>
-    <%= form.number_field :nb_room %>
+    <%= form.number_field :nb_room, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :nb_bed %>
-    <%= form.number_field :nb_bed %>
+    <%= form.number_field :nb_bed, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :type_location %>
-    <%= form.select :type_location, options_for_select(Location.type_locations.keys.to_a) %>
+    <%= form.select :type_location, options_for_select(Location.type_locations.keys.to_a), class: 'form-control' %>
 
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.text_area :description, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :city %>
-    <%= form.text_field :city %>
+    <%= form.text_field :city, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :street %>
-    <%= form.text_field :street %>
+    <%= form.text_field :street, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :zip_code %>
-    <%= form.text_field :zip_code %>
+    <%= form.text_field :zip_code, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :lat %>
-    <%= form.text_field :lat %>
+    <%= form.text_field :lat, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :long %>
-    <%= form.text_field :long %>
+    <%= form.text_field :long, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :price %>
-    <%= form.text_field :price %>
+    <%= form.text_field :price, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :avg_score %>
-    <%= form.text_field :avg_score %>
+    <%= form.text_field :avg_score, class: 'form-control' %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-primary' %>
   </div>
 <% end %>

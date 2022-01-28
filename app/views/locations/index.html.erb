@@ -106,9 +106,9 @@
         <td><%= location.long %></td>
         <td><%= location.price %></td>
         <td><%= location.avg_score %></td>
-        <td><%= link_to 'Show', location %></td>
-        <td><%= link_to 'Edit', edit_location_path(location) %></td>
-        <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Voir', location %></td>
+        <td><%= link_to 'Editer', edit_location_path(location) %></td>
+        <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Êtes-vous sûr ?' } %></td>
       </tr>
     <% end %>
   </tbody>

@@ -11,27 +11,27 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :user %>
     <%= form.text_field :user %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :location %>
     <%= form.text_field :location %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :score %>
     <%= form.text_field :score %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :comment %>
     <%= form.text_area :comment %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-primary' %>
   </div>
 <% end %>
