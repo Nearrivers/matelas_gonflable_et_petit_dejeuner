@@ -1,6 +1,6 @@
-class CreateEquipments < ActiveRecord::Migration[6.1]
+class CreateAppliances < ActiveRecord::Migration[6.1]
   def change
-    create_table :equipments do |t|
+    create_table :appliances do |t|
       t.string :value
       t.references :category, null: false, foreign_key: true
 

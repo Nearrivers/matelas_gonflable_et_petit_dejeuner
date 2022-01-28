@@ -4,6 +4,7 @@ class EquipmentsController < ApplicationController
   # GET /equipment or /equipment.json
   def index
     @equipment = Equipment.all
+    render template: '/equipments/index'
   end
 
   # GET /equipment/1 or /equipment/1.json

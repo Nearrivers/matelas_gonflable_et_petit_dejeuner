@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :appliances
   resources :user_favs
   resources :locations
   devise_for :users

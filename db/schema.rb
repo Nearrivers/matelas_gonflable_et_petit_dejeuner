@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_28_133714) do
+ActiveRecord::Schema.define(version: 2022_01_28_150627) do
+
+  create_table "appliances", force: :cascade do |t|
+    t.string "value"
+    t.integer "category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_appliances_on_category_id"
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string "value"
@@ -25,6 +33,14 @@ ActiveRecord::Schema.define(version: 2022_01_28_133714) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user1_id"], name: "index_conversations_on_user1_id"
     t.index ["user2_id"], name: "index_conversations_on_user2_id"
+  end
+
+  create_table "equipment", force: :cascade do |t|
+    t.string "value"
+    t.integer "category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_equipment_on_category_id"
   end
 
   create_table "equipments", force: :cascade do |t|
@@ -128,6 +144,8 @@ ActiveRecord::Schema.define(version: 2022_01_28_133714) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "appliances", "categories"
+  add_foreign_key "equipment", "categories"
   add_foreign_key "equipments", "categories"
   add_foreign_key "locations", "users"
   add_foreign_key "user_favs", "locations"
