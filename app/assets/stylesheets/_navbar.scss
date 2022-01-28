@@ -19,6 +19,8 @@
         .nav-item {
           cursor: pointer;
           text-align: center;
+          margin-bottom: 0;
+
           svg {
             fill: #ffffff;
           }
@@ -50,7 +52,7 @@
             }
           }
 
-          &:hover > .nav-link:not(.active)::after{
+          &:hover > .nav-link:not(.active)::after {
             display: inline;
             height: 5px;
             border-bottom: 2px solid #adadad;
@@ -89,7 +91,7 @@
             background-color: #333333;
           }
 
-          .user-dropdown {
+          .user-dropdown, .dropdown {
             display: flex;
             align-items: center;
             position: relative;
@@ -123,53 +125,92 @@
               fill: gray;
             }
 
-            .menu-connexion {
-              position: absolute;
-              top: 120%;
-              right: 0;
-              width: 220px;
-              background-color: white;
-              border: none;
-              border-radius: 10px;
-              display: none;
-              flex-direction: column;
-              padding-top: 10px;
-              padding-bottom: 10px;
 
-              div:not(.dropdown-divider) {
-                height: 38px;
-                cursor: pointer;
-                vertical-align: center;
-
-                &:hover {
-                  background-color: #eeeeee;
-                }
-
-                .menu-link {
-                  display: block;
-                  text-decoration: none;
-                  color: black;
-                  padding: 10px;
-                  cursor: pointer;
-                  &:hover {
-                    background-color: #eeeeee;
-                  }
-                }
-
-                .inscription {
-                  font-weight: bold;
-                }
-              }
-            }
-
-            .display-menu {
-              display: flex !important;
-              z-index: 999;
-            }
           }
         }
       }
     }
+  }
+}
+
+
+.menu-connexion, .custom-dropdown-menu {
+  position: absolute;
+  top: 120%;
+  right: 0;
+  width: 220px;
+  background-color: white;
+  border: none;
+  border-radius: 10px;
+  display: none;
+  flex-direction: column;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  div:not(.dropdown-divider) {
+    height: 38px;
+    cursor: pointer;
+    vertical-align: center;
+
+    &:hover {
+      background-color: #eeeeee;
+    }
+
+    .menu-link {
+      display: block;
+      text-decoration: none;
+      color: black;
+      padding: 10px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #eeeeee;
+      }
+    }
+
+    .inscription {
+      font-weight: bold;
+    }
+  }
+}
+
+.display-menu {
+  display: flex !important;
+  z-index: 999;
+}
+
+.dropdown {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 72px;
+  height: 42px;
+  justify-content: space-evenly;
+  background-color: #fff;
+  border-radius: 40px;
+
+  button {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+
+    &:focus {
+      box-shadow: none;
+    }
+
+    &::after {
+      display: none;
+    }
+
+  }
+
+  .burger-icon svg {
+    fill: black;
+  }
+
+  .user-icon svg {
+    fill: gray;
   }
 }
 
@@ -198,7 +239,7 @@
         background-color: #eeeeee;
       }
 
-      &:hover, &.hover .item-label{
+      &:hover, &.hover .item-label {
         cursor: pointer;
         border-radius: 40px;
         background: #eeeeee !important;
@@ -301,7 +342,7 @@
 
       &:hover, &.hover .searchbar-item {
         cursor: pointer;
-        border-radius:  40px;
+        border-radius: 40px;
         background: #eeeeee;
       }
 
