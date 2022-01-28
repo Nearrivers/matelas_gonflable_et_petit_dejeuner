@@ -3,10 +3,7 @@ class LocationsController < ApplicationController
 
   # GET /locations or /locations.json
   def index
-    @locations = Location.all
-    @testerino = "Ceci est un test"
-    @total = 150
-    @cpt = 1
+
   end
 
   # GET /locations/1 or /locations/1.json
@@ -20,6 +17,19 @@ class LocationsController < ApplicationController
 
   # GET /locations/1/edit
   def edit
+  end
+
+  # GET/locations?where=&depart=&arrivee=&travelers=
+  # Search route coming from the navbar
+  def searchCriteria
+    # to_i transforms the string into an integer (params[] always gives strings)
+    arrival = Date.strptime(params[:arrivee], "%Y-%m-%d")
+    departure = Date.strptime(params[:depart], "%Y-%m-%d")
+    @locations = Location.where("city = ?", params[:where]).where("nb_people_max >= ?", params[:travelers].to_i)
+    @nbrOfDays = departure - arrival
+    @total = 150
+    @cpt = 1
+    render template: '/locations/index'
   end
 
   # POST /locations or /locations.json

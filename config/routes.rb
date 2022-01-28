@@ -18,4 +18,6 @@ Rails.application.routes.draw do
   get 'host_space/locations', to: "host_space#locations"
 
   root to: 'application#index'
+
+  get 'location_criterias', to: 'locations#searchCriteria'
 end

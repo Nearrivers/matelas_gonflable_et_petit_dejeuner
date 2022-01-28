@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+
   def index
     @latest_locations = Location.limit(4)
     @latest_locations.inspect
