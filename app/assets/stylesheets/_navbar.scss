@@ -173,7 +173,6 @@
 }
 
 
-
 .searchbar-section {
   height: 66px;
   background-color: black;
@@ -188,175 +187,176 @@
     border-radius: 40px;
     display: flex;
 
-        .dates-pickers {
-            display: flex;
-            position: relative;
-
-            input[type="date"] {
-                width: 80px;
-                background-color: inherit;
-                border: none !important;
-                overflow-x: visible;
-
-                &:focus {
-                    outline: none;
-                }
-
-                &::-webkit-calendar-picker-indicator {
-                    color: white;
-                }
-            }
-
-            .datepicker-input {
-                cursor: pointer;
-            }
-
-            .datepicker-input::-webkit-calendar-picker-indicator {
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                margin: 0;
-                padding: 0;
-                opacity: 0;
-                cursor: pointer;
-            }
-
-    .searchbar-item {
-      border-radius: 40px;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      padding: 14px 32px 14px 32px;
-
-      &:hover {
-        background-color: #eeeeee;
-      }
-
-      &:hover, &.hover .item-label {
-        cursor: pointer;
-        border-radius: 40px;
-        background: #eeeeee !important;
-      }
-
-      .item-label:first-child {
-        font-weight: bold;
-        font-size: 12px !important;
-      }
-
-      .item-label {
-        font-size: 14px;
-        border: none;
-        background-color: inherit;
-
-        &:focus {
-          outline: none !important;
-          font-weight: bold;
-        }
-      }
-    }
-
-    .separator {
-      align-self: center;
-      border-right: 1px solid rgb(221, 221, 221);
-      height: 32px;
-    }
-
-
-    .address-picker {
-      width: 269.98px;
-    }
-
     .dates-pickers {
       display: flex;
+      position: relative;
 
-      .arrival-picker {
-        width: 158px;
-      }
+      input[type="date"] {
+        width: 80px;
+        background-color: inherit;
+        border: none !important;
+        overflow-x: visible;
 
-      .departure-picker {
-        width: 158px;
-      }
-    }
+        &:focus {
+          outline: none;
+        }
 
-    .travelers-picker {
-      width: 300.24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      &:hover, &.hover .searchbar-item {
-        cursor: pointer;
-        border-radius: 40px;
-        background: #eeeeee;
-      }
-
-      .search-glass {
-        padding-right: 4%;
-
-        .search-button {
-          // width: 48px;
-          width: 146px;
-          height: 48px;
-          border-radius: 24px;
-          border: none;
-          background-color: rgb(255, 56, 92);
-          display: flex;
-          justify-content: space-around;
-          align-items: center;
+        &::-webkit-calendar-picker-indicator {
           color: white;
-          font-weight: 700;
+        }
+      }
 
-          // .magnifying-glass{
-          //     height: 16px;
-          //     width: 16px;
-          // }
-          // .rechercher {
-          //     display: none;
-          // }
-          
+      .datepicker-input {
+        cursor: pointer;
+      }
+
+      .datepicker-input::-webkit-calendar-picker-indicator {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        opacity: 0;
+        cursor: pointer;
+      }
+
+      .searchbar-item {
+        border-radius: 40px;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        padding: 14px 32px 14px 32px;
+
+        &:hover {
+          background-color: #eeeeee;
+        }
+
+        &:hover, &.hover .item-label {
+          cursor: pointer;
+          border-radius: 40px;
+          background: #eeeeee !important;
+        }
+
+        .item-label:first-child {
+          font-weight: bold;
+          font-size: 12px !important;
+        }
+
+        .item-label {
+          font-size: 14px;
+          border: none;
+          background-color: inherit;
+
+          &:focus {
+            outline: none !important;
+            font-weight: bold;
+          }
+        }
+      }
+
+      .separator {
+        align-self: center;
+        border-right: 1px solid rgb(221, 221, 221);
+        height: 32px;
+      }
+
+
+      .address-picker {
+        width: 269.98px;
+      }
+
+      .dates-pickers {
+        display: flex;
+
+        .arrival-picker {
+          width: 158px;
+        }
+
+        .departure-picker {
+          width: 158px;
+        }
+      }
+
+      .travelers-picker {
+        width: 300.24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &:hover, &.hover .searchbar-item {
+          cursor: pointer;
+          border-radius: 40px;
+          background: #eeeeee;
+        }
+
+        .search-glass {
+          padding-right: 4%;
+
+          .search-button {
+            // width: 48px;
+            width: 146px;
+            height: 48px;
+            border-radius: 24px;
+            border: none;
+            background-color: rgb(255, 56, 92);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            color: white;
+            font-weight: 700;
+
+            // .magnifying-glass{
+            //     height: 16px;
+            //     width: 16px;
+            // }
+            // .rechercher {
+            //     display: none;
+            // }
+
             .searchbar-item {
 
-                input {
-                    border: none;
-                    width: 100%;
-                    background-color: inherit;
-                    position: relative;
+              input {
+                border: none;
+                width: 100%;
+                background-color: inherit;
+                position: relative;
 
-                    &::placeholder {
-                        overflow: visible !important;
-                    }
-
-                    &:focus {
-                        outline: none;
-                    }
+                &::placeholder {
+                  overflow: visible !important;
                 }
+
+                &:focus {
+                  outline: none;
+                }
+              }
             }
 
             &:hover, &.hover .searchbar-item {
-                cursor: pointer;
-                border-radius:  40px;
-                background: #eeeeee;
+              cursor: pointer;
+              border-radius: 40px;
+              background: #eeeeee;
             }
 
             .search-glass {
-                padding-right: 4%;
+              padding-right: 4%;
 
-                .search-button {
-                    // width: 48px;
-                    width: 146px;
-                    height: 48px;
-                    border-radius: 24px;
-                    border: none;
-                    background-color: rgb(255, 56, 92);
-                    display: flex;
-                    justify-content: space-around;
-                    align-items: center;
-                    color: white;
-                    font-weight: 700;
-                }
+              .search-button {
+                // width: 48px;
+                width: 146px;
+                height: 48px;
+                border-radius: 24px;
+                border: none;
+                background-color: rgb(255, 56, 92);
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                color: white;
+                font-weight: 700;
+              }
             }
+          }
         }
       }
     }
