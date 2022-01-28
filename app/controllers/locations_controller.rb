@@ -3,7 +3,8 @@ class LocationsController < ApplicationController
 
   # GET /locations or /locations.json
   def index
-
+    @cpt = 0;
+    @locations = Location.all
   end
 
   # GET /locations/1 or /locations/1.json
@@ -70,14 +71,37 @@ class LocationsController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_location
-      @location = Location.find(params[:id])
+  #mise en fav
+  # /locations/:id/fav
+  def add_to_fav
+    location = Location.find(params[:id])
+    if current_user == nil || location == nil
+      return redirect_to location, notice: "Vous devez être connecté pour effectuer cette action"
     end
 
-    # Only allow a list of trusted parameters through.
-    def location_params
-      params.require(:location).permit(:name, :nb_people_max, :nb_room, :nb_bed, :type_location, :description, :city, :street, :zip_code, :lat, :long, :price, :avg_score)
+    already_fav = UserFav.find_by(user_id: current_user.id, location_id: location.id)
+
+    if already_fav != nil
+      already_fav.destroy
+      return redirect_to location, notice: "Favori retiré"
     end
+
+    user_fav = UserFav.new
+    user_fav.user_id = current_user.id
+    user_fav.location_id = location.id
+    user_fav.save
+    return redirect_to location, notice: "Favori ajouté"
+  end
+
+  private
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_location
+    @location = Location.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def location_params
+    params.require(:location).permit(:name, :nb_people_max, :nb_room, :nb_bed, :type_location, :description, :city, :street, :zip_code, :lat, :long, :price, :avg_score)
+  end
 end

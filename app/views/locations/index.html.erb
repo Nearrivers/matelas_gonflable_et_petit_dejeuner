@@ -54,7 +54,9 @@
                     <span><span class="score"><%= location.avg_score %></span> ((nbComment) commentaires)</span>
                   </div>
                   <div class="total">
-                    <%= @nbrOfDays * location.price %>€ au total
+                    <% if @nbrOfDays %>
+                      <%= @nbrOfDays * location.price %>€ au total
+                  <% end %>
                   </div>
                 </div>
               </div>
