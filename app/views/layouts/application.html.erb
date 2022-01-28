@@ -9,7 +9,6 @@
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= stylesheet_link_tag 'bootstrap.min', media: 'all' %>
   <%= stylesheet_link_tag 'leaflet', media: 'all' %>
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'bootstrap' %>
   <%= javascript_pack_tag 'leaflet' %>
@@ -33,5 +32,37 @@
 <footer>
   <%= render './layouts/footer' %>
 </footer>
+
+<script>
+    targets = [];
+
+    document.addEventListener('turbolinks:load', () => {
+        let btnToggles = document.querySelectorAll('.display-toggle');
+
+        btnToggles.forEach(b => {
+            b.addEventListener("click", clickMenu, true);
+        })
+
+        document.addEventListener('click', (e) => {
+            document.removeEventListener('click', clickMenu, true);
+            if (e.target.classList.contains('display-toggle') || e.target.classList.contains("menu-path") || e.target.classList.contains("menu-svg")) {
+                return;
+            }
+            targets.forEach(t => {
+                if (t.classList.contains("display-menu")) {
+                    t.classList.remove('display-menu');
+
+                }
+            })
+        });
+    });
+
+    function clickMenu(e) {
+        let target = document.getElementById(e.currentTarget.dataset.target);
+        target.classList.add('display-menu');
+        targets.push(target);
+    }
+</script>
+
 </body>
 </html>

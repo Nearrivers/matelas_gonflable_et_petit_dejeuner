@@ -35,10 +35,10 @@ class LocationsController < ApplicationController
   # POST /locations or /locations.json
   def create
     @location = Location.new(location_params)
-
+    @location.user_id = current_user.id
     respond_to do |format|
       if @location.save
-        format.html { redirect_to @location, notice: "Location was successfully created." }
+        format.html { redirect_to host_space_locations_path, notice: "Location was successfully created." }
         format.json { render :show, status: :created, location: @location }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class LocationsController < ApplicationController
     respond_to do |format|
       location_params.inspect
       if @location.update(location_params)
-        format.html { redirect_to @location, notice: "Location was successfully updated." }
+        format.html { redirect_to host_space_locations_path, notice: "Location was successfully updated." }
         format.json { render :show, status: :ok, location: @location }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -65,7 +65,7 @@ class LocationsController < ApplicationController
   def destroy
     @location.destroy
     respond_to do |format|
-      format.html { redirect_to locations_url, notice: "Location was successfully destroyed." }
+      format.html { redirect_to host_space_locations_path, notice: "Location was successfully destroyed." }
       format.json { head :no_content }
     end
   end

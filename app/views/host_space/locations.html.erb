@@ -1,0 +1,168 @@
+<style>
+    header {
+        display: none;
+    }
+</style>
+
+<nav class="navbar host-nav bg-white text-black-100 navbar-expand-sm">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse ">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <svg width="30" height="32" fill="currentcolor" style="display:block">
+            <path d="M29.24 22.68c-.16-.39-.31-.8-.47-1.15l-.74-1.67-.03-.03c-2.2-4.8-4.55-9.68-7.04-14.48l-.1-.2c-.25-.47-.5-.99-.76-1.47-.32-.57-.63-1.18-1.14-1.76a5.3 5.3 0 00-8.2 0c-.47.58-.82 1.19-1.14 1.76-.25.52-.5 1.03-.76 1.5l-.1.2c-2.45 4.8-4.84 9.68-7.04 14.48l-.06.06c-.22.52-.48 1.06-.73 1.64-.16.35-.32.73-.48 1.15a6.8 6.8 0 007.2 9.23 8.38 8.38 0 003.18-1.1c1.3-.73 2.55-1.79 3.95-3.32 1.4 1.53 2.68 2.59 3.95 3.33A8.38 8.38 0 0022.75 32a6.79 6.79 0 006.75-5.83 5.94 5.94 0 00-.26-3.5zm-14.36 1.66c-1.72-2.2-2.84-4.22-3.22-5.95a5.2 5.2 0 01-.1-1.96c.07-.51.26-.96.52-1.34.6-.87 1.65-1.41 2.8-1.41a3.3 3.3 0 012.8 1.4c.26.4.45.84.51 1.35.1.58.06 1.25-.1 1.96-.38 1.7-1.5 3.74-3.21 5.95zm12.74 1.48a4.76 4.76 0 01-2.9 3.75c-.76.32-1.6.41-2.42.32-.8-.1-1.6-.36-2.42-.84a15.64 15.64 0 01-3.63-3.1c2.1-2.6 3.37-4.97 3.85-7.08.23-1 .26-1.9.16-2.73a5.53 5.53 0 00-.86-2.2 5.36 5.36 0 00-4.49-2.28c-1.85 0-3.5.86-4.5 2.27a5.18 5.18 0 00-.85 2.21c-.13.84-.1 1.77.16 2.73.48 2.11 1.78 4.51 3.85 7.1a14.33 14.33 0 01-3.63 3.12c-.83.48-1.62.73-2.42.83a4.76 4.76 0 01-5.32-4.07c-.1-.8-.03-1.6.29-2.5.1-.32.25-.64.41-1.02.22-.52.48-1.06.73-1.6l.04-.07c2.16-4.77 4.52-9.64 6.97-14.41l.1-.2c.25-.48.5-.99.76-1.47.26-.51.54-1 .9-1.4a3.32 3.32 0 015.09 0c.35.4.64.89.9 1.4.25.48.5 1 .76 1.47l.1.2c2.44 4.77 4.8 9.64 7 14.41l.03.03c.26.52.48 1.1.73 1.6.16.39.32.7.42 1.03.19.9.29 1.7.19 2.5z"></path>
+          </svg>
+        </li>
+      </ul>
+      <ul class="navbar-nav menu-centre">
+        <div class="items">
+          <li class="nav-item">
+            <a class="nav-link active">Aujourd'hui</a>
+          </li>
+        </div>
+        <div class="items">
+          <li class="nav-item">
+            <a class="nav-link">Messages</a>
+          </li>
+        </div>
+        <div class="items">
+          <li class="nav-item">
+            <a href="https://www.airbnb.fr/s/experiences/online" class="nav-link">Calendrier</a>
+          </li>
+        </div>
+        <div class="items">
+          <li class="nav-item">
+            <a href="https://www.airbnb.fr/s/experiences/online" class="nav-link">Informations</a>
+          </li>
+        </div>
+        <div class="items">
+          <li class="nav-item">
+            <a class="display-toggle nav-link" data-target="menu-menu">
+              Menu <i class="fa fa-chevron-down"></i>
+            </a>
+            <div class="soft-hidden custom-dropdown-menu" id="menu-menu">
+              <div>
+                <a href="" class="menu-link">Annonces</a>
+              </div>
+              <div>
+                <a href="" class="menu-link">Réservations</a>
+              </div>
+              <div>
+                <%= link_to "Créer une annonce", new_location_path, class: "menu-link" %>
+              </div>
+            </div>
+          </li>
+        </div>
+      </ul>
+
+
+      <div class="devenez-hote">
+        <ul class="navbar-nav">
+          <div class="user-dropdown">
+            <button class="display-toggle" data-target="menu-connexion-profile">
+              <li class="nav-item burger-icon">
+                <svg class="menu-svg" height="16px" id="Layer_1" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <path class="menu-path" d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/>
+                </svg>
+              </li>
+              <li class="nav-item user-icon">
+                <svg class="menu-svg" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="display: block; height: 30px; width: 30px;">
+                  <path class="menu-path" d="m16 .7c-8.437 0-15.3 6.863-15.3 15.3s6.863 15.3 15.3 15.3 15.3-6.863 15.3-15.3-6.863-15.3-15.3-15.3zm0 28c-4.021 0-7.605-1.884-9.933-4.81a12.425 12.425 0 0 1 6.451-4.4 6.507 6.507 0 0 1 -3.018-5.49c0-3.584 2.916-6.5 6.5-6.5s6.5 2.916 6.5 6.5a6.513 6.513 0 0 1 -3.019 5.491 12.42 12.42 0 0 1 6.452 4.4c-2.328 2.925-5.912 4.809-9.933 4.809z"></path>
+                </svg>
+              </li>
+            </button>
+            <div class="menu-connexion-profile" id="menu-connexion-profile">
+              <div>
+                <%= link_to 'Profil', edit_user_path(current_user), class: 'menu-link' %>
+              </div>
+              <div>
+                <%= link_to "Compte", user_path(current_user), class: "menu-link" %>
+              </div>
+              <div>
+                <a href="https://www.airbnb.fr/help" class="menu-link">Obtenir de l'aide</a>
+              </div>
+              <div class="dropdown-divider"></div>
+              <% if user_signed_in? %>
+                <div>
+                  <%= link_to 'Déconnexion', destroy_user_session_path, class: 'menu-link', method: :delete %>
+                </div>
+              <% else %>
+                <div>
+                  <%= link_to "Inscription", new_user_registration_path, class: "menu-link" %>
+                </div>
+                <div>
+                  <%= link_to "Connexion", new_user_session_path, class: "menu-link" %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="my-locations container">
+  <div class="d-flex justify-content-between align-items-center">
+    <% if @locations.length %>
+      <h1><%= @locations.length %> annonce<%= @locations.length > 1 ? "s" : '' %></h1>
+      <%= link_to new_location_path do %>
+        <div class="btn btn-dark">
+          <i class="fa fa-plus"></i> Créer une annonce
+        </div>
+      <% end %>
+    <% else %>
+      <div class="no-locations w-100 d-flex flex-column justify-content-center align-items-center">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="display: block; height: 32px; width: 32px; fill: rgb(34, 34, 34);">
+          <path d="m24.0001497 1c2.6882889.00069168 4.881043 2.1224181 4.9956073 4.78298655l.0047037.21687134.0007229 5.08862781-2 .0002841-.0007228-5.08837049c-.0006381-1.59771409-1.2497012-2.9036382-2.8243181-2.99526279l-.1762503-.00513652h-15.9998924c-1.59768088 0-2.90366088 1.24891996-2.99490731 2.82372721l-.00509269.17627279v19.9997571c.00038808 1.5977123 1.24926802 2.903807 2.82388326 2.9956217l.17625084.0051578 4.823918.000647-.0002682 2-4.82416099-.0006471c-2.68831483-.0010137-4.88080158-2.1230666-4.99495305-4.7836635l-.00466986-.216873v-20c0-2.6887547 2.12230671-4.88181811 4.78311038-4.99538049l.21688962-.00461951zm-2.0001497 12c4.9705627 0 9 4.0294373 9 9s-4.0294373 9-9 9-9-4.0294373-9-9 4.0294373-9 9-9zm0 2c-3.8659932 0-7 3.1340068-7 7s3.1340068 7 7 7 7-3.1340068 7-7-3.1340068-7-7-7zm3.0160589 3.1704628 1.3678822 1.4590744-6.0172744 5.6411948-3.3506078-3.1411948 1.3678822-1.4590744 1.9820589 1.8585372z"></path>
+        </svg>
+        <p class="mt-3">Vous n'avez pas encore d'annonce.</p>
+      </div>
+    <% end %>
+
+  </div>
+
+
+  <table>
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Nb room</th>
+      <th>Nb bed</th>
+      <th>Type location</th>
+      <th>Description</th>
+      <th>City</th>
+      <th>Street</th>
+      <th>Zip code</th>
+      <th>Lat</th>
+      <th>Long</th>
+      <th>Price</th>
+      <th>Avg score</th>
+      <th colspan="3"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @locations.each do |location| %>
+      <tr>
+        <td><%= location.name %></td>
+        <td><%= location.nb_room %></td>
+        <td><%= location.nb_bed %></td>
+        <td><%= location.type_location %></td>
+        <td><%= location.description %></td>
+        <td><%= location.city %></td>
+        <td><%= location.street %></td>
+        <td><%= location.zip_code %></td>
+        <td><%= location.lat %></td>
+        <td><%= location.long %></td>
+        <td><%= location.price %></td>
+        <td><%= location.avg_score %></td>
+        <td><%= link_to 'Show', location %></td>
+        <td><%= link_to 'Edit', edit_location_path(location) %></td>
+        <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
