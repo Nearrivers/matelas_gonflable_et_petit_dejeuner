@@ -94,8 +94,6 @@ GEM
       concurrent-ruby (~> 1.0)
     jbuilder (2.11.3)
       activesupport (>= 5.0.0)
-    leaflet-rails (1.7.0)
-      rails (>= 4.2.0)
     loofah (2.12.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -219,7 +217,6 @@ DEPENDENCIES
   capybara (>= 3.26)
   devise
   jbuilder (~> 2.7)
-  leaflet-rails
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.4, >= 6.1.4.1)
@@ -227,6 +224,7 @@ DEPENDENCIES
   selenium-webdriver
   sqlite3 (~> 1.4)
   turbolinks (~> 5)
+  tzinfo
   tzinfo-data
   web-console (>= 4.1.0)
   webdrivers
