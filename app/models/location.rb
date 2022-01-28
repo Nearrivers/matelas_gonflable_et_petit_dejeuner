@@ -6,6 +6,8 @@ class Location < ApplicationRecord
 
   enum type_location: ["type test", "type test2", "type test 3"]
 
+  # Permet de dire à Geocoder que le champ adresse en fait les champs street, city et zip_code combinés
+  # et séparés par une virgule
   def address
     [street, city, zip_code].compact.join(', ')
   end

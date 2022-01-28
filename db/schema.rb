@@ -35,6 +35,11 @@ ActiveRecord::Schema.define(version: 2022_01_28_141035) do
     t.index ["category_id"], name: "index_equipments_on_category_id"
   end
 
+  create_table "equipments_locations", id: false, force: :cascade do |t|
+    t.integer "location_id", null: false
+    t.integer "equipment_id", null: false
+  end
+
   create_table "feedbacks", force: :cascade do |t|
     t.integer "user_id"
     t.integer "location_id"

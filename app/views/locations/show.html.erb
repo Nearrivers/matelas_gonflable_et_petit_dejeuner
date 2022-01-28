@@ -192,7 +192,7 @@
         </div>
       </div>
       <div class="reservation">
-        <div class="reservation-box">
+        <form class="reservation-box" method="POST">
           <div class="box-header">
             <div class="box-header-left">
               <span><%= @location.price %>€</span> / nuit
@@ -210,10 +210,25 @@
             </div>
           </div>
           <div class="box-body">
-            <!-- TODO: S'il y a le temps, rajouter la sélection des jours et le calcul du prix total -->
+            <div class="box-form">
+              <div class="form-dates">
+                <div class="form-arrival">
+                  <div class="form-label">ARRIVÉE</div>
+                  <div class="form-input"><input type="date" class="datepicker-input" id="arrival" name="arrival" required></div>
+                </div>
+                <div class="form-departure">
+                  <div class="form-label">DÉPART</div>
+                  <div class="form-input"><input type="date" class="datepicker-input" id="departure" name="departure" required></div>
+                </div>
+              </div>
+              <div class="form-travelers">
+                <div class="form-label">VOYAGEURS</div>
+                <div class="form-input"><input type="number" id="travelers" name="travelers" placeholder = "Combien ?" required min="0"></div>
+              </div>
+            </div>
             <button>Réserver</button>
           </div>
-        </div>
+        </form>
       </div>
     </div>
 
@@ -225,4 +240,35 @@
   </div>
 </div>
 
+<script>
+    document.addEventListener('turbolinks:load', () => {
+      let departPicker = document.getElementById('departure');
+      let arriveePicker = document.getElementById('arrival');
+      var dtToday = new Date();
 
+      var month = dtToday.getMonth() + 1;
+      var day = dtToday.getDate();
+      var year = dtToday.getFullYear();
+      if(month < 10)
+          month = '0' + month.toString();
+      if(day < 10)
+          day = '0' + day.toString();
+
+      var maxDate = year + '-' + month + '-' + day;
+      departPicker.setAttribute('min', maxDate);
+      arriveePicker.setAttribute('min', maxDate);
+
+      // Blur event is fired when the element loses focus
+      arriveePicker.addEventListener('blur', function(event) {
+          let departDate = departPicker.value;
+
+          let arriveeDate = arriveePicker.value;
+
+          if (arriveeDate > departDate) {
+              departDate = arriveeDate;
+          }
+
+          departPicker.setAttribute('min', departDate);
+      });
+    });
+</script>
