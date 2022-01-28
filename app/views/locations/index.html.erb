@@ -72,7 +72,7 @@
   </div>
 </div>
 
-<!-- <table>
+<table>
   <thead>
     <tr>
       <th>Name</th>
@@ -102,8 +102,8 @@
         <td><%= location.city %></td>
         <td><%= location.street %></td>
         <td><%= location.zip_code %></td>
-        <td><%= location.lat %></td>
-        <td><%= location.long %></td>
+        <td><%= location.latitude %></td>
+        <td><%= location.longitude %></td>
         <td><%= location.price %></td>
         <td><%= location.avg_score %></td>
         <td><%= link_to 'Show', location %></td>
@@ -116,7 +116,7 @@
 
 <br>
 
-<%= link_to 'New Location', new_location_path %> -->
+<%= link_to 'New Location', new_location_path %>
 
 <script>
   var map = L.map('map').setView([43.6044622, 1.4442469], 12);

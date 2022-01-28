@@ -25,6 +25,7 @@ class LocationsController < ApplicationController
     # to_i transforms the string into an integer (params[] always gives strings)
     arrival = Date.strptime(params[:arrivee], "%Y-%m-%d")
     departure = Date.strptime(params[:depart], "%Y-%m-%d")
+    @results = Location.near("Big Ben")
     @locations = Location.where("city = ?", params[:where]).where("nb_people_max >= ?", params[:travelers].to_i)
     @nbrOfDays = departure - arrival
     @total = 150
