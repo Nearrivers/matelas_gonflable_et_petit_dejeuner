@@ -9,6 +9,10 @@ class HostSpaceController < ApplicationController
     @locations = Location.where(user_id: current_user.id)
   end
 
+  def locations_reservations
+    @reservations = Reservation.where(location_id: params['id'])
+  end
+
   def accept_reservation
     @reservation = Reservation.find(params['id'])
     if (@reservation)

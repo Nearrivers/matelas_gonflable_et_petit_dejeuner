@@ -104,8 +104,8 @@
 
 <div class="my-locations container p-5">
   <div class="d-flex justify-content-between align-items-center">
-    <% if @locations.length %>
-      <h1><%= @locations.length %> annonce<%= @locations.length > 1 ? "s" : '' %></h1>
+    <% if @reservations.length %>
+      <h1><%= @reservations.length %> réservation<%= @reservations.length > 1 ? "s" : '' %></h1>
       <%= link_to new_location_path do %>
         <div class="btn btn-dark">
           <i class="fa fa-plus"></i> Créer une annonce
@@ -122,48 +122,22 @@
 
   </div>
 
-
-  <table>
-    <thead>
+  <% @reservations.each do |reservation| %>
     <tr>
-      <th>Name</th>
-      <th>Nb room</th>
-      <th>Nb bed</th>
-      <th>Type location</th>
-      <th>Description</th>
-      <th>City</th>
-      <th>Street</th>
-      <th>Zip code</th>
-      <th>Lat</th>
-      <th>Long</th>
-      <th>Price</th>
-      <th>Avg score</th>
-      <th colspan="3"></th>
+      <td><%= reservation.user_id %></td>
+      <td><%= reservation.location_id %></td>
+      <td><%= reservation.price %></td>
+      <td><%= reservation.date_in %></td>
+      <td><%= reservation.date_out %></td>
+      <td><%= reservation.nb_people %></td>
+      <td><%= reservation.stripe_reference %></td>
+      <td><%= reservation.status %></td>
+      <td><%= link_to 'Show', reservation %></td>
+      <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td>
+      <td><%= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
-    </thead>
+  <% end %>
 
-    <tbody>
-    <% @locations.each do |location| %>
-      <tr>
-        <td><%= location.name %></td>
-        <td><%= location.nb_room %></td>
-        <td><%= location.nb_bed %></td>
-        <td><%= location.type_location %></td>
-        <td><%= location.description %></td>
-        <td><%= location.city %></td>
-        <td><%= location.street %></td>
-        <td><%= location.zip_code %></td>
-        <td><%= location.latitude %></td>
-        <td><%= location.longitude %></td>
-        <td><%= location.price %></td>
-        <td><%= location.avg_score %></td>
-        <td><%= link_to 'Gérer les réservations', locations_reservations_path(:id => location) %></td>
-        <td><%= link_to 'Voir', location %></td>
-        <td><%= link_to 'Editer', edit_location_path(location) %></td>
-        <td><%= link_to 'Supprimer', location, method: :delete, data: { confirm: 'Êtes-vous sûr ?' } %></td>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
+
 </div>
 

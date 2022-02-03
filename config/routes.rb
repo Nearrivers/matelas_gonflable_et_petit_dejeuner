@@ -25,6 +25,7 @@ Rails.application.routes.draw do
 
   get 'host_space', to: "host_space#index"
   get 'host_space/locations', to: "host_space#locations"
+  get 'host_space/locations/:id/reservations', to: "host_space#locations_reservations", as: 'locations_reservations'
   post 'host_space/reservations/accept', to: "host_space#accept_reservation", as: 'accept_reservation'
   post 'host_space/reservations/decline', to: "host_space#decline_reservation", as: 'decline_reservation'
 

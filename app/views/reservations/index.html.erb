@@ -78,6 +78,48 @@
 
   <br>
 
+  <h1 class="mb-5">Historique de réservations</h1>
+
+  <table>
+    <thead>
+    <tr>
+      <th>User</th>
+      <th>Location</th>
+      <th>Price</th>
+      <th>Date in</th>
+      <th>Date out</th>
+      <th>Nb people</th>
+      <th>Stripe reference</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @old_reservations.each do |reservation| %>
+      <tr>
+        <td><%= reservation.user_id %></td>
+        <td><%= reservation.location_id %></td>
+        <td><%= reservation.price %></td>
+        <td><%= reservation.date_in %></td>
+        <td><%= reservation.date_out %></td>
+        <td><%= reservation.nb_people %></td>
+        <td><%= reservation.stripe_reference %></td>
+        <td><%= reservation.status %></td>
+        <td>
+          <%= link_to new_reservation_path do %>
+          <button class="btn btn-dark">
+            Laisser un feedback
+          </button>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
   <%= link_to 'New Reservation', new_reservation_path %>
 
 </div>
