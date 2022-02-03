@@ -5,6 +5,7 @@ class Location < ApplicationRecord
   has_many :reservations
   has_many :location_appliances
   has_many :appliances, through: :location_appliances
+  accepts_nested_attributes_for :appliances
 
   enum type_location: ["type test", "type test2", "type test 3"]
 

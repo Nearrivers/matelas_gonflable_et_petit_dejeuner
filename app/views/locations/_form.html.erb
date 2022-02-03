@@ -77,7 +77,38 @@
     <%= form.text_field :avg_score, class: 'form-control' %>
   </div>
 
+  <div id="location_appliance">
+    <div class="jumbotron">
+      <h3>Indiquez aux voyageurs quels sont les équipements de votre logement</h3>
+    </div>
+    <div class="appliances-grid">
+      <% @appliances.each do | appliance | %>
+        <div class="appliance-button">
+          <button class="appliance-tile" type="button" role="checkbox" aria-checked="false" name="appliance_ids[]" id=<%=appliance.value%> value=<%=appliance.id%>>
+            <%= image_tag(appliance.value + ".svg", :alt => "placeholder") %>
+            <%= appliance.value %>
+          </button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
   <div class="actions">
     <%= form.submit class: 'btn btn-primary' %>
   </div>
 <% end %>
+
+<script>
+  document.addEventListener('turbolinks:load', () => {
+    let appliance_tiles = document.querySelectorAll('.appliance-tile')
+    appliance_tiles.forEach(e => {
+      e.addEventListener('click', function (event) {
+        if (!e.getAttribute('aria-checked') || e.getAttribute('aria-checked') === "false"){
+          e.setAttribute('aria-checked', true)
+        } else {
+          e.setAttribute('aria-checked', false)
+        }
+      })
+    });
+  });
+</script>

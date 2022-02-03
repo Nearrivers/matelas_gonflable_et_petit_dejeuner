@@ -14,6 +14,7 @@ class LocationsController < ApplicationController
   # GET /locations/new
   def new
     @location = Location.new
+    @appliances = Appliance.all
   end
 
   # GET /locations/1/edit
@@ -40,6 +41,14 @@ class LocationsController < ApplicationController
     @location.user_id = current_user.id
     respond_to do |format|
       if @location.save
+        appliances_ids = params[:appliance_ids]
+        puts appliances_ids.inspect
+
+        appliances_ids.each do | location_appliance|
+          @location_appliance = LocationAppliance.new(location_id: @location.id, appliance_id: location_appliance)
+          @location_appliance.save
+        end
+
         format.html { redirect_to host_space_locations_path, notice: "Location was successfully created." }
         format.json { render :show, status: :created, location: @location }
       else
