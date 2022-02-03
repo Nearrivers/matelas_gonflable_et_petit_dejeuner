@@ -4,7 +4,8 @@ class ReservationsController < ApplicationController
 
   # GET /reservations or /reservations.json
   def index
-    @reservations = Reservation.all
+    @reservations = Reservation.where('user_id', current_user.id).where('status', true)
+    @waiting_reservations = Reservation.where('user_id', current_user.id).where('status = ? OR status IS ?', false, nil)
   end
 
   # GET /reservations/1 or /reservations/1.json

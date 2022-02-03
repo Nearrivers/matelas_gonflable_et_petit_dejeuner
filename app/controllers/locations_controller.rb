@@ -31,6 +31,9 @@ class LocationsController < ApplicationController
     @nbrOfDays = departure - arrival
     @total = 150
     @cpt = 1
+
+    @great_locations = Location.order('avg_score DESC').limit(4)
+
     render template: '/locations/index'
   end
 
