@@ -23,6 +23,7 @@ class ReservationsController < ApplicationController
   # POST /reservations or /reservations.json
   def create
     @reservation = Reservation.new(reservation_params)
+    @reservation.status = false
 
     respond_to do |format|
       if @reservation.save
@@ -58,13 +59,14 @@ class ReservationsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_reservation
-      @reservation = Reservation.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def reservation_params
-      params.permit(:user_id, :location_id, :price, :date_in, :date_out, :nb_people, :stripe_reference, :status)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_reservation
+    @reservation = Reservation.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def reservation_params
+    params.permit(:user_id, :location_id, :price, :date_in, :date_out, :nb_people, :stripe_reference, :status)
+  end
 end
