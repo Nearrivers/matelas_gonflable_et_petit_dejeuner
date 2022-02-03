@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_28_141035) do
+ActiveRecord::Schema.define(version: 2022_02_03_100031) do
+
+  create_table "appliances", force: :cascade do |t|
+    t.string "value"
+    t.integer "category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_appliances_on_category_id"
+  end
 
   create_table "appliances_locations", id: false, force: :cascade do |t|
     t.integer "location_id", null: false
@@ -55,6 +63,15 @@ ActiveRecord::Schema.define(version: 2022_01_28_141035) do
     t.string "value"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "location_appliances", force: :cascade do |t|
+    t.integer "location_id", null: false
+    t.integer "appliance_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["appliance_id"], name: "index_location_appliances_on_appliance_id"
+    t.index ["location_id"], name: "index_location_appliances_on_location_id"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -130,7 +147,10 @@ ActiveRecord::Schema.define(version: 2022_01_28_141035) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "appliances", "categories"
   add_foreign_key "equipment", "categories"
+  add_foreign_key "location_appliances", "appliances"
+  add_foreign_key "location_appliances", "locations"
   add_foreign_key "locations", "users"
   add_foreign_key "reservations", "locations"
   add_foreign_key "reservations", "users"

@@ -3,7 +3,7 @@ class LocationsController < ApplicationController
 
   # GET /locations or /locations.json
   def index
-    @cpt = 0;
+    @cpt = 0
     @locations = Location.all
   end
 

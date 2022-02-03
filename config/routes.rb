@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :reservations
+  resources :location_appliances
   resources :appliances
   resources :user_favs
   resources :locations

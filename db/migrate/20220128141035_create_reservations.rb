@@ -1,5 +1,6 @@
 class CreateReservations < ActiveRecord::Migration[6.1]
   def change
+    drop_table :reservations
     create_table :reservations do |t|
       t.references :user, null: false, foreign_key: true
       t.references :location, null: false, foreign_key: true
