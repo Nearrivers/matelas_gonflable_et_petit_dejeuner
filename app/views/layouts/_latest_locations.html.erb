@@ -1,18 +1,33 @@
 <section id="discover">
   <div class="d-flex flex-column card-img">
-      <%= image_tag("airbnb.webp", :alt => "flexible") %>
-      <div class="img-caption">
-        <h2>Vous ne savez pas où partir ? <br>C'est bête ça.</h2>
-        <button><a href ="https://www.airbnb.fr/s/homes?search_mode=flex_destinations_search&date_picker_type=flexible_dates&flex_destinations_session_id=63e7bd65-16c7-4106-bbc0-c68f4a1523c4">Je fais de la GRS</a></button>
-      </div>
+    <%= image_tag("airbnb.webp", :alt => "flexible") %>
+    <div class="img-caption">
+      <h2>Vous ne savez pas où partir ? <br>C'est bête ça.</h2>
+      <button>
+        <a href="https://www.airbnb.fr/s/homes?search_mode=flex_destinations_search&date_picker_type=flexible_dates&flex_destinations_session_id=63e7bd65-16c7-4106-bbc0-c68f4a1523c4">Je
+          fais de la GRS</a></button>
+    </div>
   </div>
 </section>
 
 <section id="latest_locations">
   <div class="p-4">
-    <h1>Locations en vedettes</h1>
+    <h1>La crème de la crème, locations aimées de tous</h1>
 
-      <div class="p-3">
+    <div class="p-3">
+      <% @great_locations.each do |location| %>
+        <tr>
+          <td><%= location.name %></td>
+          <td><%= location.city %></td>
+          <td><%= location.price %></td>
+        </tr>
+      <% end %>
+    </div>
+  </div>
+  <div class="p-4">
+    <h1>Jette un oeil à ça, c'est tout frais</h1>
+
+    <div class="p-3">
       <% @latest_locations.each do |location| %>
         <tr>
           <td><%= location.name %></td>
@@ -20,6 +35,6 @@
           <td><%= location.price %></td>
         </tr>
       <% end %>
-      </div>
+    </div>
   </div>
 </section>
