@@ -508,45 +508,20 @@
                         width: 100%;
 
                         .equipements {
-                            display: flex;
-                            flex-direction: column;
+                            display: grid;
                             width: 100%;
-                            margin-right: 30px;
+                            gap: 1rem;
+                            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
 
                             div {
-                                padding-bottom: 16px;
                                 display: flex;
                                 align-items: center;
 
-                                svg {
-                                    margin-right: 20px;
+
+                                img {
+                                    max-width: 24px;
+                                    margin-right: 3%;
                                 }
-                            }
-                        }
-                    }
-
-                    .other-equipements {
-                        height: 48px;
-                        width: 250px;
-                        border: 1px solid black;
-                        border-radius: 10px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        cursor: pointer;
-                        margin-top: 2%;
-
-                        &:hover {
-                            text-decoration: underline;
-                            background-color: #f1f1f1;
-                        }
-
-                        a {
-                            display: block;
-                            font-weight: bold;
-
-                            &:hover {
-                                background: inherit;
                             }
                         }
                     }
