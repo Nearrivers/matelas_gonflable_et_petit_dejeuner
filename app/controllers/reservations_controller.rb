@@ -4,9 +4,10 @@ class ReservationsController < ApplicationController
 
   # GET /reservations or /reservations.json
   def index
-    @reservations = Reservation.where('user_id', current_user.id).where('status', true).where("DATE(date_out) < ?", DateTime.now)
-    @waiting_reservations = Reservation.where('user_id', current_user.id).where("DATE(date_out) < ?", DateTime.now).where('status = ? OR status IS ?', false, nil)
-    @old_reservations = Reservation.where("DATE(date_out) < ?", DateTime.now).where('status = ?', true)
+
+    @reservations = Reservation.where(user_id: current_user.id).where('status', true).where("DATE(date_out) < ?", DateTime.now)
+    @waiting_reservations = Reservation.where(user_id: current_user.id).where("DATE(date_out) < ?", DateTime.now).where('status = ? OR status IS ?', false, nil)
+    @old_reservations = Reservation.where(user_id: current_user.id).where("DATE(date_out) < ?", DateTime.now).where('status = ?', true)
   end
 
   # GET /reservations/1 or /reservations/1.json

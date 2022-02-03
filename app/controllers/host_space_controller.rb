@@ -2,7 +2,7 @@ class HostSpaceController < ApplicationController
   before_action :authenticate_user!, :check_is_host
 
   def index
-    @reservations = Reservation.includes(:user, location: [:user]).where('user_id', 1).where('status = ? OR status IS ?', false, nil)
+    @reservations = Reservation.includes(:user, location: [:user]).where(user_id: current_user.id).where('status = ? OR status IS ?', false, nil)
   end
 
   def locations

@@ -71,6 +71,7 @@ a:hover {
 .display-menu {
     display: flex !important;
     z-index: 999;
+    box-shadow: 0 0 3px #e0e0e0;
 }
 
 /**/
