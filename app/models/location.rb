@@ -2,7 +2,11 @@ class Location < ApplicationRecord
 
   belongs_to :user
   has_many :user_fav
+<<<<<<< Updated upstream
   has_many :reservations
+=======
+  has_and_belongs_to_many :appliances
+>>>>>>> Stashed changes
 
   enum type_location: ["type test", "type test2", "type test 3"]
 

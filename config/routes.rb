@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
+<<<<<<< Updated upstream
   resources :reservations
+=======
+  resources :location_appliances
+>>>>>>> Stashed changes
   resources :appliances
   resources :user_favs
   resources :locations

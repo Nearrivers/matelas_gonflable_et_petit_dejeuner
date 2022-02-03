@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_28_150627) do
+ActiveRecord::Schema.define(version: 2022_01_29_130013) do
 
   create_table "appliances", force: :cascade do |t|
     t.string "value"
@@ -35,27 +35,6 @@ ActiveRecord::Schema.define(version: 2022_01_28_150627) do
     t.index ["user2_id"], name: "index_conversations_on_user2_id"
   end
 
-  create_table "equipment", force: :cascade do |t|
-    t.string "value"
-    t.integer "category_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["category_id"], name: "index_equipment_on_category_id"
-  end
-
-  create_table "equipments", force: :cascade do |t|
-    t.string "value"
-    t.integer "category_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["category_id"], name: "index_equipments_on_category_id"
-  end
-
-  create_table "equipments_locations", id: false, force: :cascade do |t|
-    t.integer "location_id", null: false
-    t.integer "equipment_id", null: false
-  end
-
   create_table "feedbacks", force: :cascade do |t|
     t.integer "user_id"
     t.integer "location_id"
@@ -67,7 +46,16 @@ ActiveRecord::Schema.define(version: 2022_01_28_150627) do
     t.index ["user_id"], name: "index_feedbacks_on_user_id"
   end
 
-  create_table "l_options", force: :cascade do |t|
+  create_table "location_appliances", force: :cascade do |t|
+    t.integer "location_id", null: false
+    t.integer "appliance_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["appliance_id"], name: "index_location_appliances_on_appliance_id"
+    t.index ["location_id"], name: "index_location_appliances_on_location_id"
+  end
+
+  create_table "location_options", force: :cascade do |t|
     t.string "value"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -145,8 +133,8 @@ ActiveRecord::Schema.define(version: 2022_01_28_150627) do
   end
 
   add_foreign_key "appliances", "categories"
-  add_foreign_key "equipment", "categories"
-  add_foreign_key "equipments", "categories"
+  add_foreign_key "location_appliances", "appliances"
+  add_foreign_key "location_appliances", "locations"
   add_foreign_key "locations", "users"
   add_foreign_key "user_favs", "locations"
   add_foreign_key "user_favs", "users"
