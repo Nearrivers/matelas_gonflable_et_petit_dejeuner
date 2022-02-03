@@ -11,27 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field form-group">
-    <%= form.label :user %>
-    <%= form.text_field :user %>
-  </div>
+  <%= form.hidden_field :reservation_id, :value => params[:reservation_id] %>
 
-  <div class="field form-group">
-    <%= form.label :location %>
-    <%= form.text_field :location %>
-  </div>
-
-  <div class="field form-group">
+  <div class="field">
     <%= form.label :score %>
-    <%= form.text_field :score %>
+    <%= form.number_field :score, min: 0, max: 5 %>
   </div>
 
-  <div class="field form-group">
+  <div class="field">
     <%= form.label :comment %>
-    <%= form.text_area :comment %>
+    <%= form.text_field :comment %>
   </div>
 
   <div class="actions">
-    <%= form.submit class: 'btn btn-primary' %>
+    <%= form.submit %>
   </div>
 <% end %>

@@ -2,12 +2,7 @@
 
 <p>
   <strong>User:</strong>
-  <%= @feedback.user %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @feedback.location %>
+  <%= @feedback.user_id %>
 </p>
 
 <p>
@@ -20,5 +15,10 @@
   <%= @feedback.comment %>
 </p>
 
-<%= link_to 'Editer', edit_feedback_path(@feedback) %> |
-<%= link_to 'Retour', feedbacks_path %>
+<p>
+  <strong>Reservation:</strong>
+  <%= @feedback.reservation_id %>
+</p>
+
+<%= link_to 'Edit', edit_feedback_path(@feedback) %> |
+<%= link_to 'Back', feedbacks_path %>

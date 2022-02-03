@@ -1,13 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user: 
-  location: 
+  user: one
   score: 1.5
-  comment: MyText
+  comment: MyString
+  reservation: one
 
 two:
-  user: 
-  location: 
+  user: two
   score: 1.5
-  comment: MyText
+  comment: MyString
+  reservation: two

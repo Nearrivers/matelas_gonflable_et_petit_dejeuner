@@ -1,4 +1,4 @@
 class Feedback < ApplicationRecord
-  has_one :user
-  has_one :location
+  belongs_to :user
+  belongs_to :reservation
 end

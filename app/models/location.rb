@@ -1,8 +1,8 @@
 class Location < ApplicationRecord
 
   belongs_to :user
-  has_many :user_fav
-  has_many :reservations
+  has_many :user_fav, :dependent => :destroy
+  has_many :reservations, :dependent => :destroy
   has_many :location_appliances
   has_many :appliances, through: :location_appliances
 

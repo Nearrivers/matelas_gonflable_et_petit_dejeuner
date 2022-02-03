@@ -15,9 +15,9 @@ class FeedbacksTest < ApplicationSystemTestCase
     click_on "New Feedback"
 
     fill_in "Comment", with: @feedback.comment
-    fill_in "Location", with: @feedback.location
+    fill_in "Reservation", with: @feedback.reservation_id
     fill_in "Score", with: @feedback.score
-    fill_in "User", with: @feedback.user
+    fill_in "User", with: @feedback.user_id
     click_on "Create Feedback"
 
     assert_text "Feedback was successfully created"
@@ -29,9 +29,9 @@ class FeedbacksTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Comment", with: @feedback.comment
-    fill_in "Location", with: @feedback.location
+    fill_in "Reservation", with: @feedback.reservation_id
     fill_in "Score", with: @feedback.score
-    fill_in "User", with: @feedback.user
+    fill_in "User", with: @feedback.user_id
     click_on "Update Feedback"
 
     assert_text "Feedback was successfully updated"

@@ -1,10 +1,10 @@
 class CreateFeedbacks < ActiveRecord::Migration[6.1]
   def change
     create_table :feedbacks do |t|
-      t.references :user
-      t.references :location
+      t.references :user, null: false, foreign_key: true
       t.float :score
-      t.text :comment
+      t.string :comment
+      t.references :reservation, null: false, foreign_key: true
 
       t.timestamps
     end

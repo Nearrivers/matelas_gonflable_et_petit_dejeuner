@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :feedbacks
   resources :reservations
   resources :location_appliances
   resources :appliances
@@ -13,7 +14,6 @@ Rails.application.routes.draw do
   get '/locations/:id/fav', to: "locations#add_to_fav", as: "add_to_fav"
 
   resources :users
-  resources :feedbacks
   resources :reservations
   resources :equipments
   resources :categories

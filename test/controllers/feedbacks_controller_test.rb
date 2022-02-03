@@ -17,7 +17,7 @@ class FeedbacksControllerTest < ActionDispatch::IntegrationTest
 
   test "should create feedback" do
     assert_difference('Feedback.count') do
-      post feedbacks_url, params: { feedback: { comment: @feedback.comment, location: @feedback.location, score: @feedback.score, user: @feedback.user } }
+      post feedbacks_url, params: { feedback: { comment: @feedback.comment, reservation_id: @feedback.reservation_id, score: @feedback.score, user_id: @feedback.user_id } }
     end
 
     assert_redirected_to feedback_url(Feedback.last)
@@ -34,7 +34,7 @@ class FeedbacksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update feedback" do
-    patch feedback_url(@feedback), params: { feedback: { comment: @feedback.comment, location: @feedback.location, score: @feedback.score, user: @feedback.user } }
+    patch feedback_url(@feedback), params: { feedback: { comment: @feedback.comment, reservation_id: @feedback.reservation_id, score: @feedback.score, user_id: @feedback.user_id } }
     assert_redirected_to feedback_url(@feedback)
   end
 

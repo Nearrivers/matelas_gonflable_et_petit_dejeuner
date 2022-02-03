@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_03_100031) do
+ActiveRecord::Schema.define(version: 2022_02_03_194725) do
 
   create_table "appliances", force: :cascade do |t|
     t.string "value"
@@ -57,13 +57,13 @@ ActiveRecord::Schema.define(version: 2022_02_03_100031) do
   end
 
   create_table "feedbacks", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "location_id"
+    t.integer "user_id", null: false
     t.float "score"
-    t.text "comment"
+    t.string "comment"
+    t.integer "reservation_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["location_id"], name: "index_feedbacks_on_location_id"
+    t.index ["reservation_id"], name: "index_feedbacks_on_reservation_id"
     t.index ["user_id"], name: "index_feedbacks_on_user_id"
   end
 
@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(version: 2022_02_03_100031) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id", null: false
+    t.integer "nb_feedbacks", default: 0
     t.index ["user_id"], name: "index_locations_on_user_id"
   end
 
@@ -158,6 +159,8 @@ ActiveRecord::Schema.define(version: 2022_02_03_100031) do
   add_foreign_key "appliances", "categories"
   add_foreign_key "equipment", "categories"
   add_foreign_key "equipments", "categories"
+  add_foreign_key "feedbacks", "reservations"
+  add_foreign_key "feedbacks", "users"
   add_foreign_key "location_appliances", "appliances"
   add_foreign_key "location_appliances", "locations"
   add_foreign_key "locations", "users"
