@@ -16,7 +16,7 @@
             </div>
             <span>&middot</span>
             <div class="overview-comments">
-              (20 commentaires todo)
+              (<%= @location.nb_feedbacks %> commentaires)
             </div>
             <span>&middot</span>
             <div class="overview-localization">
@@ -146,7 +146,7 @@
                 <%= @location.avg_score %> ·
               </div>
               <div class="box-comments">
-                nb commentaires
+                <%= @location.nb_feedbacks %> commentaires
               </div>
             </div>
           </div>
@@ -177,10 +177,17 @@
       </div>
     </div>
 
-    <div class="comments-section">
-      <div>
-        commentaires ici !
-      </div>
+    <div class="comments-section pb-4">
+
+      <% @location.reservations.each do |r| %>
+        <% if r.feedback %>
+          <div class="card col-md-3">
+            <p><%= r.feedback.score %></p>
+            <p><%= r.feedback.comment %></p>
+            <p>Laissé par <%= r.user.name %></p>
+          </div>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
