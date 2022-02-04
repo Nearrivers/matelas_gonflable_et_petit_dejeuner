@@ -1,3 +1,13 @@
+Commands to run the project
+
+* npm i
+* bundle install
+* rails db:migrate
+* rails db:seed
+* rails s
+* enjoy
+
+
 # README
 
 This README would normally document whatever steps are necessary to get the
