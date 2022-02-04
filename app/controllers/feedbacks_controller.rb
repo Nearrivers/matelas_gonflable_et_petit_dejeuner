@@ -31,7 +31,10 @@ class FeedbacksController < ApplicationController
         location = Location.find(reservation.location.id)
         nb_feedbacks = location.nb_feedbacks + 1
         old_value = location.avg_score
-        new_value =  (old_value + @feedback.score) / nb_feedbacks
+        new_value = @feedback.score
+        unless old_value.nil? || old_value == 0
+          new_value = (old_value + @feedback.score) / nb_feedbacks
+        end
         if new_value > 5
           new_value = 5
         end
