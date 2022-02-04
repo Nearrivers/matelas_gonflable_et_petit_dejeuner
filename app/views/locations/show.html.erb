@@ -184,11 +184,10 @@
       </div>
     </div>
 
-    <div class="comments-section pb-4">
-
+    <div class="comments-section">
       <% @location.reservations.each do |r| %>
         <% if r.feedback %>
-          <div class="card col-md-3">
+          <div class="comment-card">
             <p><%= r.feedback.score %></p>
             <p><%= r.feedback.comment %></p>
             <p>Laissé par <%= r.user.name %></p>
