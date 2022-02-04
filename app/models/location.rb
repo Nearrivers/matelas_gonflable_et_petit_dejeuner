@@ -5,6 +5,7 @@ class Location < ApplicationRecord
   has_many :reservations, :dependent => :destroy
   has_many :location_appliances
   has_many :appliances, through: :location_appliances
+  accepts_nested_attributes_for :location_appliances
 
   enum type_location: ["Appartement", "Résidence", "Hôtel", "Autre"]
 
