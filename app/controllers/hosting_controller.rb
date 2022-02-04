@@ -14,7 +14,7 @@ class HostingController < ApplicationController
       # success message
       flash[:success] = "Vous avez un accès hôte"
       # redirect to index
-      redirect_to locations_path
+      redirect_to host_space_path
     else
       # error message
       flash.now[:error] = "Une erreur est survenue en vous donnant l'accès hôte"
