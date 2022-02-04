@@ -130,7 +130,7 @@
 
 <script>
     let coordinates =
-    <%= escape_javascript  @results.first.coordinates.to_json %>
+    <%= escape_javascript  @results&.first&.coordinates.to_json %>
     var map = L.map('map').setView(coordinates, 12);
 
     var access_token = "pk.eyJ1IjoianVzdGF3YXkiLCJhIjoiY2p4MWo5eXZ2MDJhajQ4b2V4aTJjN2xxNiJ9.e8aHjz38Q2Z_MsvbFQejHQ";

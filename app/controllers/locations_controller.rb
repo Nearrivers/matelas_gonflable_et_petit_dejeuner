@@ -1,10 +1,13 @@
 class LocationsController < ApplicationController
   before_action :set_location, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, :check_is_host, only: %i[edit new create update]
 
   # GET /locations or /locations.json
   def index
     @cpt = 0
     @locations = Location.all
+    @great_locations = Location.order('avg_score DESC').limit(4)
+
   end
 
   # GET /locations/1 or /locations/1.json
@@ -20,6 +23,7 @@ class LocationsController < ApplicationController
 
   # GET /locations/1/edit
   def edit
+    @appliances = Appliance.all
   end
 
   # GET/locations?where=&depart=&arrivee=&travelers=
@@ -65,6 +69,13 @@ class LocationsController < ApplicationController
   def update
     respond_to do |format|
       if @location.update(location_params)
+        appliances_ids = params['appliance_ids']
+
+        appliances_ids.each do | location_appliance|
+          @location_appliance = LocationAppliance.new(location_id: @location.id, appliance_id: location_appliance)
+          @location_appliance.save
+        end
+
         format.html { redirect_to host_space_locations_path, notice: "Location was successfully updated." }
         format.json { render :show, status: :ok, location: @location }
       else
@@ -115,5 +126,12 @@ class LocationsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def location_params
     params.require(:location).permit(:name, :nb_people_max, :nb_room, :nb_bed, :type_location, :description, :city, :street, :zip_code, :lat, :long, :price, :avg_score)
+  end
+
+  def check_is_host
+    unless current_user.is_host
+      # redirect to become host
+      redirect_to hosting_path
+    end
   end
 end

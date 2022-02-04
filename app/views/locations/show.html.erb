@@ -134,7 +134,7 @@
       </div>
       <div class="reservation">
         <form class="reservation-box" action="<%= reservations_url %>" method="POST">
-          <input type="hidden" name="user_id" value="<%= current_user.id %>">
+          <input type="hidden" name="user_id" value="<%= current_user&.id %>">
           <input type="hidden" name="location_id" value="<%= @location.id %>">
           <input type="hidden" name="price" value="<%= @location.price %>">
           <div class="box-header">
