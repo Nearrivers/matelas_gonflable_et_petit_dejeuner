@@ -41,8 +41,7 @@ class LocationsController < ApplicationController
     @location.user_id = current_user.id
     respond_to do |format|
       if @location.save
-        appliances_ids = params[:appliance_ids]
-        puts appliances_ids.inspect
+        appliances_ids = params['appliance_ids']
 
         appliances_ids.each do | location_appliance|
           @location_appliance = LocationAppliance.new(location_id: @location.id, appliance_id: location_appliance)
@@ -61,7 +60,6 @@ class LocationsController < ApplicationController
   # PATCH/PUT /locations/1 or /locations/1.json
   def update
     respond_to do |format|
-      location_params.inspect
       if @location.update(location_params)
         format.html { redirect_to host_space_locations_path, notice: "Location was successfully updated." }
         format.json { render :show, status: :ok, location: @location }

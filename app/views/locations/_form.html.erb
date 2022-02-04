@@ -84,7 +84,8 @@
     <div class="appliances-grid">
       <% @appliances.each do | appliance | %>
         <div class="appliance-button">
-          <button class="appliance-tile" type="button" role="checkbox" aria-checked="false" name="appliance_ids[]" id=<%=appliance.value%> value=<%=appliance.id%>>
+          <button class="appliance-tile" type="button" role="checkbox" aria-checked="false" name="appliance_ids[]" value=<%=appliance.id%>>
+            <%= check_box_tag 'appliance_ids[]', appliance.id, {multiple: true, checked: false}  %>
             <%= image_tag(appliance.value + ".svg", :alt => "placeholder") %>
             <%= appliance.value %>
           </button>
