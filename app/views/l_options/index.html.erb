@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>L Options</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Value</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @l_options.each do |l_option| %>
+      <tr>
+        <td><%= l_option.value %></td>
+        <td><%= link_to 'Voir', l_option %></td>
+        <td><%= link_to 'Editer', edit_l_option_path(l_option) %></td>
+        <td><%= link_to 'Destroy', l_option, method: :delete, data: { confirm: 'Êtes-vous sûr ?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New L Option', new_l_option_path %>

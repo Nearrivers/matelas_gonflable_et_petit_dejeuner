@@ -1,0 +1,22 @@
+<%= form_with(model: l_option) do |form| %>
+  <% if l_option.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(l_option.errors.count, "error") %> prohibited this l_option from being saved:</h2>
+
+      <ul>
+        <% l_option.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= form.label :value %>
+    <%= form.text_field :value %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: 'btn btn-dark' %>
+  </div>
+<% end %>

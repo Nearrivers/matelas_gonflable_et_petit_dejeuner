@@ -1,16 +1,68 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>MatelasGonflableEtPetitDejeuner</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>MatelasGonflableEtPetitDejeuner</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'bootstrap.min', media: 'all' %>
+  <%= stylesheet_link_tag 'leaflet', media: 'all' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'bootstrap' %>
+  <%= javascript_pack_tag 'leaflet' %>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+
+<header>
+  <%= render './layouts/navbar' %>
+</header>
+
+<%= yield %>
+
+<% flash.each do |name, msg| %>
+  <div class="alert alert-<%= name %>"><%= msg %></div>
+<% end %>
+
+
+
+
+<footer>
+  <%= render './layouts/footer' %>
+</footer>
+
+<script>
+    targets = [];
+
+    document.addEventListener('turbolinks:load', () => {
+        let btnToggles = document.querySelectorAll('.display-toggle');
+
+        btnToggles.forEach(b => {
+            b.addEventListener("click", clickMenu, true);
+        })
+
+        document.addEventListener('click', (e) => {
+            document.removeEventListener('click', clickMenu, true);
+            if (e.target.classList.contains('display-toggle') || e.target.classList.contains("menu-path") || e.target.classList.contains("menu-svg")) {
+                return;
+            }
+            targets.forEach(t => {
+                if (t.classList.contains("display-menu")) {
+                    t.classList.remove('display-menu');
+
+                }
+            })
+        });
+    });
+
+    function clickMenu(e) {
+        let target = document.getElementById(e.currentTarget.dataset.target);
+        target.classList.add('display-menu');
+        targets.push(target);
+    }
+</script>
+
+</body>
 </html>

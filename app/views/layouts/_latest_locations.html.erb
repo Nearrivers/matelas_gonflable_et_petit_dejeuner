@@ -1,0 +1,63 @@
+<section id="discover">
+  <div class="d-flex flex-column card-img">
+    <%= image_tag("airbnb.webp", :alt => "flexible") %>
+    <div class="img-caption">
+      <h2>Vous ne savez pas où partir ? <br>C'est bête ça.</h2>
+      <button>
+        <a href="https://www.airbnb.fr/s/homes?search_mode=flex_destinations_search&date_picker_type=flexible_dates&flex_destinations_session_id=63e7bd65-16c7-4106-bbc0-c68f4a1523c4">Je
+          fais de la GRS</a></button>
+    </div>
+  </div>
+</section>
+
+<section id="locations">
+  <div class="p-4">
+    <h1>La crème de la crème, locations aimées de tous</h1>
+
+    <div class="p-3" id="great_locations">
+      <% @great_locations.each do |location| %>
+        <div class="location_card">
+          <div class="location_img"></div>
+          <div class="location_body">
+            <h4><%= location.name %></h4>
+            <p><%= location.city %></p>
+            <p><%= location.price %>€ / nuit</p>
+            <div class="see_location">
+                <button>
+                  <%= link_to location_path(location) do %>
+                    En savoir plus
+                  <% end %>
+                </button>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+  <div class="p-4">
+    <h1>Jette un oeil à ça, c'est tout frais</h1>
+
+    <div class="p-3">
+      <div class="p-3" id="latest_locations">
+        <% @latest_locations.each do |location| %>
+          <div class="location_card">
+            <div class="location_img"></div>
+            <div class="location_body">
+              <h4><%= location.name %></h4>
+              <p><%= location.city %></p>
+              <p><%= location.price %>€ / nuit</p>
+              <div class="see_location">
+                <button>
+                  <%= link_to location_path(location) do %>
+                    En savoir plus
+                  <% end %>
+                </button>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
