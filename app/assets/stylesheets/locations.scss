@@ -284,6 +284,82 @@
     }
 }
 
+#great_locations {
+    display: grid;
+    width: 100%;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+
+.location_card{
+    display: flex;
+    flex-direction: column;
+    height: 290px;
+
+    .location_img {
+        width: 100%;
+        height: 45%;
+        border-radius: 8px 8px 0 0;
+        background-size: cover !important;
+        background-position: center;
+        background: url("https://a0.muscache.com/im/pictures/54582c41-77ef-4f41-aa88-6a4ed0068f4b.jpg?im_w=960") no-repeat;
+    }
+
+    .location_body {
+        width: 100%;
+        height: 55%;
+        background-color: #ff385c;
+        border-radius: 0 0 8px 8px;
+        color: white;
+        font-weight: bold;
+        padding: 3%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+
+        h4 {
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 18px;
+        }
+    }
+}
+
+.see_location {
+
+    button {
+        background-color: white;
+        border: none;
+        width: 120px;
+        height: 35px;
+        border-radius: 8px;
+
+        a {
+            background: linear-gradient(90deg, #6F019C 0%, #C6017E 135.12%) !important;
+            -webkit-background-clip: text !important;
+            height: 100%;
+            text-decoration: none;
+            font-weight: bold;
+            -webkit-text-fill-color: transparent !important;
+        }
+    }
+}
+
+#latest_locations {
+    display: grid;
+    width: 100%;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+
+    .location_card {
+        .location_body {
+            background-color: blue ;
+        }
+    }
+}
+
 // Page single location
 #single_location {
     display: flex;
@@ -531,7 +607,7 @@
             .reservation {
                 width: 45%;
                 margin-top: 10px;
-                height: 300px;
+                height: 340px;
                 display: flex;
                 justify-content: end;
 
@@ -652,6 +728,12 @@
                                     width: 100%;
                                 }
                             }
+                        }
+
+                        .options {
+                            display: flex;
+                            justify-content: space-evenly;
+                            align-items: center;
                         }
 
                         button {

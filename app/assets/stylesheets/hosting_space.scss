@@ -6,7 +6,20 @@
 .booking-list {
   padding: 60px 40px;
   margin: 20px 0;
+}
 
+.user_reservations {
+  display: grid;
+  width: 100%;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
+}
+
+.mes_reservation_card {
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
 }
 
 .no-travelers, .no-locations {
