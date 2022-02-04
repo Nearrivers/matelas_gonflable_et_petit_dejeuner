@@ -19,7 +19,8 @@
       <ul class="navbar-nav menu-centre">
         <div class="items">
           <li class="nav-item">
-            <a class="nav-link active">Aujourd'hui</a>
+            <%= link_to "Aujourd'hui", host_space_path, class: "nav-link active"%>
+
           </li>
         </div>
         <div class="items">
@@ -47,7 +48,8 @@
                 <a href="" class="menu-link">Annonces</a>
               </div>
               <div>
-                <a href="" class="menu-link">Réservations</a>
+                <%= link_to "Réservations", host_space_path, class: "menu-link" %>
+
               </div>
               <div>
                 <%= link_to "Créer une annonce", new_location_path, class: "menu-link" %>

@@ -8,10 +8,12 @@
     <% @user_favs.each do |user_fav| %>
       <div class="card m-2">
         <div class="card-header">
-          <p>
-            Location :
-            <%= user_fav.location.name %>
-          </p>
+          <%= link_to location_path(user_fav.location) do %>
+            <p>
+              Location :
+              <%= user_fav.location.name %>
+            </p>
+            <%end %>
         </div>
         <div class="card-body">
           <button class="btn btn-default d-flex">
