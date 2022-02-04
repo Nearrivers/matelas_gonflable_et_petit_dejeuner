@@ -122,17 +122,16 @@
   <h2>Vos réservations</h2>
 
   <% if @reservations.length > 0 %>
-    <div class="row">
+    <div class="user_reservations">
       <% @reservations.each do |r| %>
-        <div class="card col-md-4 m-3">
-          <%= r.user.name %>
-          pour
-          <%= r.price %>€
-          Du
-          <%= r.date_in %>
-          au
-          <%= r.date_out %>
-          <%= r.status %>
+        <div class="mes_reservation_card">
+          <div>
+            <%= r.user.name %> pour <%= r.price %>€.
+          </div>
+          <div>
+            Du <%= r.date_in %> au <%= r.date_out %>
+          </div>
+          <div><%= r.status %></div>
 
           <div class="m-2">
             <h3>Options demandées :</h3>

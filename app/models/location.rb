@@ -3,7 +3,7 @@ class Location < ApplicationRecord
   belongs_to :user
   has_many :user_fav, :dependent => :destroy
   has_many :reservations, :dependent => :destroy
-  has_many :location_appliances
+  has_many :location_appliances, :dependent => :destroy
   has_many :appliances, through: :location_appliances
   accepts_nested_attributes_for :location_appliances
 

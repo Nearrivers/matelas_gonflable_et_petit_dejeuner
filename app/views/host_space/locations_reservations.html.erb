@@ -124,32 +124,45 @@
 
   </div>
 
-  <% @reservations.each do |reservation| %>
-    <tr>
-      <td><%= reservation.user_id %></td>
-      <td><%= reservation.location_id %></td>
-      <td><%= reservation.price %></td>
-      <td><%= reservation.date_in %></td>
-      <td><%= reservation.date_out %></td>
-      <td><%= reservation.nb_people %></td>
-      <td><%= reservation.stripe_reference %></td>
-      <td><%= reservation.status %></td>
-      <td>
-        <%= link_to accept_reservation_path(:id => reservation.id), method: :post do %>
-          <button class="btn btn-outline-primary">
+  <div class="user_reservations">
+    <% @reservations.each do |r| %>
+      <div class="mes_reservation_card">
+        <div>
+          <%= r.user.name %> pour <%= r.price %>€.
+        </div>
+        <div>
+          Du <%= r.date_in %> au <%= r.date_out %>
+        </div>
+        <div><%= r.status %></div>
+
+        <div class="m-2">
+          <h3>Options demandées :</h3>
+          <% if r.options.size == 0 %>
+            <p>Aucune option demandée</p>
+          <% else %>
+            <ul>
+              <% r.options.each do |o| %>
+                <li>
+                  <%= o.value %>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
+        </div>
+
+        <%= link_to accept_reservation_path(:id => r.id), method: :post do %>
+          <button class="btn btn-outline-primary m-r-3">
             Accepter la réservation
           </button>
         <% end %>
 
-        <%= link_to decline_reservation_path(:id => reservation.id), method: :post do %>
-          <button class="btn btn-outline-warning">
+        <%= link_to decline_reservation_path(:id => r.id), method: :post do %>
+          <button class="btn btn-outline-warning m-3">
             Refuser la réservation
           </button>
         <% end %>
-      </td>
-    </tr>
-  <% end %>
-
-
+      </div>
+    <% end %>
+  </div>
 </div>
 

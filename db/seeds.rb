@@ -22,6 +22,12 @@ appliances_list = [
     ["Extincteur", 3]
 ]
 
+options_list = [
+    "Ménage",
+    "Serviette",
+    "Surprise"
+]
+
 categories_list.each do |value|
     test = Category.new( value: value)
     test.save
@@ -29,5 +35,10 @@ end
 
 appliances_list.each do |value, category_id|
     test = Appliance.new( value: value, category_id: category_id)
+    test.save
+end
+
+options_list.each do | name |
+    test = Option.new(value: name)
     test.save
 end
