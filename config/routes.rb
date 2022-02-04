@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :reservations_options
+  resources :options
   resources :feedbacks
   resources :reservations
   resources :location_appliances

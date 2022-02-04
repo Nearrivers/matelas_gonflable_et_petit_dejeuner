@@ -27,6 +27,15 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
     @reservation.status = false
+    @reservation.save
+
+    options = params['options']
+    options.each do |o|
+      ro = ReservationsOption.new
+      ro.reservation_id = @reservation.id
+      ro.option_id = o.to_i
+      ro.save
+    end
 
     respond_to do |format|
       if @reservation.save
@@ -70,6 +79,6 @@ class ReservationsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def reservation_params
-    params.permit(:user_id, :location_id, :price, :date_in, :date_out, :nb_people, :stripe_reference, :status)
+    params.permit(:user_id, :location_id, :price, :date_in, :date_out, :nb_people, :stripe_reference, :status, :options)
   end
 end

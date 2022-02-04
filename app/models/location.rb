@@ -6,7 +6,7 @@ class Location < ApplicationRecord
   has_many :location_appliances
   has_many :appliances, through: :location_appliances
 
-  enum type_location: ["type test", "type test2", "type test 3"]
+  enum type_location: ["Appartement", "Résidence", "Hôtel", "Autre"]
 
   # Permet de dire à Geocoder que le champ adresse en fait les champs street, city et zip_code combinés
   # et séparés par une virgule

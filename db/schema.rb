@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_03_194725) do
+ActiveRecord::Schema.define(version: 2022_02_04_082310) do
 
   create_table "appliances", force: :cascade do |t|
     t.string "value"
@@ -18,6 +18,11 @@ ActiveRecord::Schema.define(version: 2022_02_03_194725) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_appliances_on_category_id"
+  end
+
+  create_table "appliances_locations", id: false, force: :cascade do |t|
+    t.integer "location_id", null: false
+    t.integer "appliance_id", null: false
   end
 
   create_table "categories", force: :cascade do |t|
@@ -43,19 +48,6 @@ ActiveRecord::Schema.define(version: 2022_02_03_194725) do
     t.index ["category_id"], name: "index_equipment_on_category_id"
   end
 
-  create_table "equipments", force: :cascade do |t|
-    t.string "value"
-    t.integer "category_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["category_id"], name: "index_equipments_on_category_id"
-  end
-
-  create_table "equipments_locations", id: false, force: :cascade do |t|
-    t.integer "location_id", null: false
-    t.integer "equipment_id", null: false
-  end
-
   create_table "feedbacks", force: :cascade do |t|
     t.integer "user_id", null: false
     t.float "score"
@@ -67,6 +59,12 @@ ActiveRecord::Schema.define(version: 2022_02_03_194725) do
     t.index ["user_id"], name: "index_feedbacks_on_user_id"
   end
 
+  create_table "l_options", force: :cascade do |t|
+    t.string "value"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "location_appliances", force: :cascade do |t|
     t.integer "location_id", null: false
     t.integer "appliance_id", null: false
@@ -74,12 +72,6 @@ ActiveRecord::Schema.define(version: 2022_02_03_194725) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["appliance_id"], name: "index_location_appliances_on_appliance_id"
     t.index ["location_id"], name: "index_location_appliances_on_location_id"
-  end
-
-  create_table "location_options", force: :cascade do |t|
-    t.string "value"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "locations", force: :cascade do |t|
@@ -98,7 +90,7 @@ ActiveRecord::Schema.define(version: 2022_02_03_194725) do
     t.float "avg_score"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id", null: false
+    t.integer "user_id"
     t.integer "nb_feedbacks", default: 0
     t.index ["user_id"], name: "index_locations_on_user_id"
   end
@@ -111,6 +103,12 @@ ActiveRecord::Schema.define(version: 2022_02_03_194725) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["conversation_id"], name: "index_messages_on_conversation_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "options", force: :cascade do |t|
+    t.string "value"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -126,6 +124,15 @@ ActiveRecord::Schema.define(version: 2022_02_03_194725) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["location_id"], name: "index_reservations_on_location_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
+  end
+
+  create_table "reservations_options", force: :cascade do |t|
+    t.integer "reservation_id", null: false
+    t.integer "option_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["option_id"], name: "index_reservations_options_on_option_id"
+    t.index ["reservation_id"], name: "index_reservations_options_on_reservation_id"
   end
 
   create_table "user_favs", force: :cascade do |t|
@@ -158,7 +165,6 @@ ActiveRecord::Schema.define(version: 2022_02_03_194725) do
 
   add_foreign_key "appliances", "categories"
   add_foreign_key "equipment", "categories"
-  add_foreign_key "equipments", "categories"
   add_foreign_key "feedbacks", "reservations"
   add_foreign_key "feedbacks", "users"
   add_foreign_key "location_appliances", "appliances"
@@ -166,6 +172,8 @@ ActiveRecord::Schema.define(version: 2022_02_03_194725) do
   add_foreign_key "locations", "users"
   add_foreign_key "reservations", "locations"
   add_foreign_key "reservations", "users"
+  add_foreign_key "reservations_options", "options"
+  add_foreign_key "reservations_options", "reservations"
   add_foreign_key "user_favs", "locations"
   add_foreign_key "user_favs", "users"
 end

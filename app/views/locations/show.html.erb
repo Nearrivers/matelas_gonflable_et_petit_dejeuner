@@ -171,6 +171,13 @@
                 </div>
               </div>
             </div>
+
+            <div class="p-3">
+              <% @options.each do |o| %>
+                <%= check_box_tag 'options[]', o.id, checked: false %>
+                <%= o.value %>
+              <% end %>
+            </div>
             <button>Réserver</button>
           </div>
         </form>

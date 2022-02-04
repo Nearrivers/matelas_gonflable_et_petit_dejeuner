@@ -17,9 +17,5 @@ class CreateLocations < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
-
-    def self.up
-      rename_column :locations, :locationOptions, :location_options
-    end
   end
 end

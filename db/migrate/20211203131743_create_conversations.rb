@@ -3,6 +3,7 @@ class CreateConversations < ActiveRecord::Migration[6.1]
     create_table :conversations do |t|
       t.references :user1
       t.references :user2
+      t.references :reservation
 
       t.timestamps
     end
